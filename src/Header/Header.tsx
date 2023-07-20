@@ -1,4 +1,4 @@
-import "./NavBar.scss";
+import "./Header.scss";
 
 function Header() {
   return <></>;
