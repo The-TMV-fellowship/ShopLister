@@ -1,0 +1,17 @@
+.ShoppingListCard {
+  color: white;
+  margin-bottom: 2rem;
+  &__Title {
+    font-weight: bold;
+    text-align: left;
+    margin-right: 1rem;
+  }
+  &__TopRow {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__BottomRow {
+    display: flex;
+    justify-content: space-between;
+  }
+}
