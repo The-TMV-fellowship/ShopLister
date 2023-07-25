@@ -2,7 +2,15 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import PersonIcon from "@mui/icons-material/Person";
 import "./ShoppingListCard.scss";
 
-function ShoppingListCard({ isGroup }: { isGroup: boolean }) {
+function ShoppingListCard({
+  isGroup,
+  checkedOffAmount,
+  listSize,
+}: {
+  isGroup: boolean;
+  checkedOffAmount: number;
+  listSize: number;
+}) {
   return (
     <div className="ShoppingListCard">
       <div className="ShoppingListCard__TopRow">
@@ -13,7 +21,9 @@ function ShoppingListCard({ isGroup }: { isGroup: boolean }) {
       </div>
       <div className="ShoppingListCard__BottomRow">
         <span>Progressbar placeholder</span>
-        <span>0/0</span>
+        <span>
+          {checkedOffAmount}/{listSize}
+        </span>
       </div>
     </div>
   );
