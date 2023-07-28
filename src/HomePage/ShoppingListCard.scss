@@ -1,6 +1,13 @@
 .ShoppingListCard {
-  color: white;
+  color: #333333;
+  background-color: white;
   margin-bottom: 2rem;
+  max-height: 4.5rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   &__Title {
     font-weight: bold;
     text-align: left;
@@ -14,5 +21,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 }

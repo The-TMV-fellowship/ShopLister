@@ -10,6 +10,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
   width: "80%",
+  flexShrink: 0,
+  padding: 0,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor:
       theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
@@ -42,11 +44,6 @@ function ShoppingListCard({
         {isGroup === true ? <GroupsIcon /> : <PersonIcon />}
       </div>
       <div className="ShoppingListCard__BottomRow">
-        {/* <LinearProgress
-          variant="determinate"
-          value={percentageCheckedOff}
-          className={styles.progress}
-        /> */}
         <BorderLinearProgress
           variant="determinate"
           value={percentageCheckedOff}
