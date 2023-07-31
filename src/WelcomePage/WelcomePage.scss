@@ -69,7 +69,7 @@ $base-hue: 244;
 @for $i from 1 through $total {
   $z: (random(360) * 1deg);
   $y: (random(360) * 1deg);
-  $hue: ((40 / $total * $i) + $base-hue);
+  $hue: calc(40 / #{$total} * #{$i} + #{$base-hue});
 
   .c:nth-child(#{$i}) {
     animation: orbit#{$i} $time infinite;

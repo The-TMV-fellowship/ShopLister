@@ -1,2 +1,12 @@
-@import './../variables';
+@import "./../variables";
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.registerFormField {
+  display: flex;
+  flex-direction: column;
+}

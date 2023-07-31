@@ -14,9 +14,11 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
+    "formik": "^2.4.2",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
