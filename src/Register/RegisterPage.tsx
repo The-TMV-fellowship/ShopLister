@@ -28,13 +28,14 @@ export default function RegisterPage() {
 
   return (
     <div className="registerPage">
-      {" "}
       <p className="registerPage__title">Register</p>
       <p className="registerPage__desc">Pleace enter details to register</p>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
+        validateOnChange={false}
+        validateOnBlur={false}
       >
         <Form className="form">
           <div className="registerFormField">
