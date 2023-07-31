@@ -27,54 +27,91 @@ export default function RegisterPage() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form>
-        <div className="registerFormField">
-          <label htmlFor="firstName">First Name:</label>
-          <Field type="text" name="firstName" />
-          <ErrorMessage
-            name="firstName"
-            component="div"
-            className="error-message"
-          />
-        </div>
+    <div className="registerPage">
+      {" "}
+      <p className="registerPage__title">Register</p>
+      <p className="registerPage__desc">Pleace enter details to register</p>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form className="form">
+          <div className="registerFormField">
+            <label htmlFor="firstName" className="registerFormField__label">
+              First Name
+            </label>
+            <Field
+              type="text"
+              name="firstName"
+              className="registerFormField__field"
+            />
+            <ErrorMessage
+              name="firstName"
+              component="div"
+              className="error-message"
+            />
+          </div>
 
-        <div className="registerFormField">
-          <label htmlFor="lastName">Last Name:</label>
-          <Field type="text" name="lastName" />
-          <ErrorMessage
-            name="lastName"
-            component="div"
-            className="error-message"
-          />
-        </div>
+          <div className="registerFormField">
+            <label htmlFor="lastName" className="registerFormField__label">
+              Last Name
+            </label>
+            <Field
+              type="text"
+              name="lastName"
+              className="registerFormField__field"
+            />
+            <ErrorMessage
+              name="lastName"
+              component="div"
+              className="error-message"
+            />
+          </div>
 
-        <div className="registerFormField">
-          <label htmlFor="email">Email:</label>
-          <Field type="email" name="email" />
-          <ErrorMessage
-            name="email"
-            component="div"
-            className="error-message"
-          />
-        </div>
+          <div className="registerFormField">
+            <label htmlFor="email" className="registerFormField__label">
+              Email
+            </label>
+            <Field
+              type="email"
+              name="email"
+              className="registerFormField__field"
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className="error-message"
+            />
+          </div>
 
-        <div className="registerFormField">
-          <label htmlFor="password">Password:</label>
-          <Field type="password" name="password" />
-          <ErrorMessage
-            name="password"
-            component="div"
-            className="error-message"
-          />
-        </div>
+          <div className="registerFormField">
+            <label htmlFor="password" className="registerFormField__label">
+              Password
+            </label>
+            <Field
+              type="password"
+              name="password"
+              className="registerFormField__field"
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className="error-message"
+            />
+          </div>
 
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+          <button type="submit" className="registerFormField__submit">
+            Submit
+          </button>
+        </Form>
+      </Formik>
+      <p className="registerPage__login">
+        Already have an account?{" "}
+        <a className="registerPage__loginLink" href="/login">
+          Login
+        </a>
+      </p>
+    </div>
   );
 }
