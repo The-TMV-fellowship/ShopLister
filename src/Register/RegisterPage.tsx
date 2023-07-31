@@ -1,7 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { RegisterFormData } from "../interfaces/types";
 import "./RegisterPage.scss";
-import { validateForm, validationSchema } from "./RegisterPageLogic";
+import {
+  createUser,
+  validateForm,
+  validationSchema,
+} from "./RegisterPageLogic";
 
 export default function RegisterPage() {
   const initialValues: RegisterFormData = {
@@ -15,6 +19,7 @@ export default function RegisterPage() {
     const validationErrors = await validateForm(values);
 
     if (Object.keys(validationErrors).length === 0) {
+      await createUser(values);
       console.log("Form is valid");
     } else {
       console.log("Form validation errors:", validationErrors);

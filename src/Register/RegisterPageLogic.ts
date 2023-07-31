@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as Yup from "yup";
 import { RegisterFormData } from "../interfaces/types";
 
@@ -26,3 +27,9 @@ export const validateForm = async (values: RegisterFormData) => {
     return validationErrors;
   }
 };
+
+export async function createUser(values: RegisterFormData) {
+  const API_BASE_URL = window.API_BASE_URL;
+  //TODO turn into env variable
+  await axios.post(`http://127.0.0.1:8000/api/createUser`, values);
+}
