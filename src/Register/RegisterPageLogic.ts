@@ -29,7 +29,7 @@ export const validateForm = async (values: RegisterFormData) => {
 };
 
 export async function createUser(values: RegisterFormData) {
-  const API_BASE_URL = window.API_BASE_URL;
-  //TODO turn into env variable
-  await axios.post(`http://127.0.0.1:8000/api/createUser`, values);
+  const API_BASE_URL = import.meta.env.VITE_API_URL as string;
+
+  await axios.post(`${API_BASE_URL}/createUser`, values);
 }
