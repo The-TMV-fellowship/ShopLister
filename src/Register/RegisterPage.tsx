@@ -1,4 +1,7 @@
+import CircularProgress from "@mui/material/CircularProgress";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { RegisterFormData } from "../interfaces/types";
 import "./RegisterPage.scss";
 import {
@@ -14,13 +17,22 @@ export default function RegisterPage() {
     email: "",
     password: "",
   };
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (values: RegisterFormData) => {
+    setLoading(true);
     const validationErrors = await validateForm(values);
 
     if (Object.keys(validationErrors).length === 0) {
-      await createUser(values);
-      console.log("Form is valid");
+      try {
+        await createUser(values);
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     } else {
       console.log("Form validation errors:", validationErrors);
     }
@@ -102,8 +114,16 @@ export default function RegisterPage() {
             />
           </div>
 
-          <button type="submit" className="registerFormField__submit">
-            Submit
+          <button
+            type="submit"
+            className="registerFormField__submit"
+            disabled={loading}
+          >
+            {loading ? (
+              <CircularProgress size={20} color="inherit" />
+            ) : (
+              "Submit"
+            )}
           </button>
         </Form>
       </Formik>
