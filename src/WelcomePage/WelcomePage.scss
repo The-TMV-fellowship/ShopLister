@@ -1,0 +1,96 @@
+@import "./../variables";
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.welcome {
+  z-index: 1;
+  padding-top: 11rem;
+
+  &__message {
+    font-family: "Pacifico", cursive;
+    font-size: 1.5rem;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    button {
+      margin-bottom: 1rem;
+      background-color: $accent;
+      width: 100%;
+    }
+  }
+
+  &__guest {
+    text-decoration: underline;
+  }
+
+  &__link {
+    width: 100%;
+  }
+}
+
+// Animated ORB
+$total: 300;
+$orb-size: 100px;
+$particle-size: 2px;
+$time: 14s;
+$base-hue: 244;
+
+.wrap-container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+}
+
+.wrap {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: rotate $time infinite linear;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+.c {
+  position: absolute;
+  width: $particle-size;
+  height: $particle-size;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+@for $i from 1 through $total {
+  $z: (random(360) * 1deg);
+  $y: (random(360) * 1deg);
+  $hue: calc(40 / #{$total} * #{$i} + #{$base-hue});
+
+  .c:nth-child(#{$i}) {
+    animation: orbit#{$i} $time infinite;
+    animation-delay: ($i * 0.01s);
+    background-color: hsla($hue, 100%, 50%, 1);
+  }
+
+  @keyframes orbit#{$i} {
+    20% {
+      opacity: 1;
+    }
+    30% {
+      transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
+    }
+    80% {
+      transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
+      opacity: 1;
+    }
+    100% {
+      transform: rotateZ(-$z) rotateY($y) translateX(($orb-size * 3))
+        rotateZ($z);
+    }
+  }
+}

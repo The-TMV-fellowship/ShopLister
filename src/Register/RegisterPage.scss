@@ -1,0 +1,72 @@
+@import "./../variables";
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.registerPage {
+  text-align: left;
+  width: 100%;
+
+  &__title {
+    color: $accent;
+    font-size: 1.5625rem;
+    margin-bottom: 0;
+  }
+
+  &__desc {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: $placeholder;
+  }
+
+  &__login {
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  &__loginLink {
+    color: $accent;
+    text-decoration: none;
+  }
+
+  &__loginLink:visited {
+    color: $accent;
+  }
+}
+
+.form {
+  width: 100%;
+}
+
+.registerFormField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  &__label {
+    color: $placeholder;
+  }
+
+  &__field {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+  }
+
+  &__field:focus {
+    outline: none;
+    border-bottom: 2px solid $accent;
+    caret-color: $accent;
+  }
+
+  &__submit {
+    background-color: $accent;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
