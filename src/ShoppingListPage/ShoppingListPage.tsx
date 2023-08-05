@@ -1,8 +1,12 @@
+import ShoppingListItem from "./ShoppingListItem"
+
 export default function ShoppingListPage() {
 
   return (
     <div>
-      <p>Test</p>
+      <ShoppingListItem/>
+      <ShoppingListItem/>
+      <ShoppingListItem/>
     </div>
   );
 }
