@@ -36,7 +36,7 @@ function ShoppingListCard({
   );
 
   return (
-    <div className="ShoppingListCard">
+    <a href="/shoppinglist" className="ShoppingListCard">
       <div className="ShoppingListCard__TopRow">
         <span className="ShoppingListCard__Title">
           Shoppinglist voor de vrijdag
@@ -52,7 +52,7 @@ function ShoppingListCard({
           {checkedOffAmount}/{listSize}
         </span>
       </div>
-    </div>
+    </a>
   );
 }
 
