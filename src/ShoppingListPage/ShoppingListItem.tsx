@@ -7,7 +7,7 @@ export default function ShoppingListPage({ childId, isChecked, onCheckboxChange,
   };
 
   return (
-      <div className="shoppinglistitem">
+      <div className= {isChecked ? 'shoppinglistitem shoppinglistitem__linethrough' : "shoppinglistitem"}>
         <div className="shoppinglistitem__lefthalf">
         <input type="checkbox"  checked={isChecked} onChange={handleChange}></input>
         <p>{itemName}</p>

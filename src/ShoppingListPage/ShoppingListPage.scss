@@ -1,6 +1,7 @@
 @import "./../variables";
 
 .shoppinglistitem{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,4 +15,14 @@
         width: 1.5rem;
         margin-right: 0.5rem
     }
+    &__linethrough {}
+
+      &__linethrough:before {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border-bottom: 0.25rem solid white;
+        width: 100%;
+      }
 }
