@@ -10,3 +10,10 @@ button{
   float: right;
   border-radius: 5rem;
 }
+
+.homepageheader{
+  display: flex;
+  &__pagedescription{
+    font-weight: bold;
+  }
+}
