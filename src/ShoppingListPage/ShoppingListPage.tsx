@@ -55,7 +55,7 @@ export default function ShoppingListPage() {
       <ShoppingListItem childId="child1" isChecked={checkboxStatus['child1']} onCheckboxChange={handleCheckboxChange} itemName={"Brood"}/>
       <ShoppingListItem childId="child2" isChecked={checkboxStatus['child2']} onCheckboxChange={handleCheckboxChange} itemName={"Coca-cola"}/>
       <ShoppingListItem childId="child3" isChecked={checkboxStatus['child3']} onCheckboxChange={handleCheckboxChange} itemName={"Eieren"}/>
-      <p>Checkboxes are {percentageChecked} percent checked</p>
+      <p>Checkboxes are {percentageChecked? percentageChecked : 0} percent checked</p>
     </div>
   );
 }
