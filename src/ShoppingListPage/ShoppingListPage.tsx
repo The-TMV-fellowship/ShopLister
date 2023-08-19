@@ -68,6 +68,7 @@ export default function ShoppingListPage() {
         <ShoppingListItem childId="child2" isChecked={checkboxStatus['child2']} onCheckboxChange={handleCheckboxChange} itemName={"Coca-cola"}/>
         <ShoppingListItem childId="child3" isChecked={checkboxStatus['child3']} onCheckboxChange={handleCheckboxChange} itemName={"Eieren"}/>
      </div>
+     <button>Add item +</button>
     </div>
     
   );
