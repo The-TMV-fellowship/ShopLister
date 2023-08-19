@@ -1,5 +1,9 @@
 @import "./../variables";
 
+.shoppinglistpage{
+    height: 100vh;
+}
+
 .shoppinglistitem{
     position: relative;
     display: flex;
@@ -16,13 +20,27 @@
         margin-right: 0.5rem
     }
     &__linethrough {}
-
-      &__linethrough:before {
-        content: " ";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        border-bottom: 0.25rem solid white;
-        width: 100%;
-      }
+    &__linethrough:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 0.25rem solid white;
+    width: 100%;
+    }
 }
+
+.shoppinglistheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    &__subpart{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__listname{
+        font-weight: bold;
+    }
+}
+

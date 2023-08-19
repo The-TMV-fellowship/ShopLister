@@ -4,6 +4,9 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export default function ShoppingListPage() {
 
@@ -50,12 +53,22 @@ export default function ShoppingListPage() {
   }
 
   return (
-    <div>
-       <BorderLinearProgress variant="determinate" value={percentageChecked? percentageChecked : 0}/>
-      <ShoppingListItem childId="child1" isChecked={checkboxStatus['child1']} onCheckboxChange={handleCheckboxChange} itemName={"Brood"}/>
-      <ShoppingListItem childId="child2" isChecked={checkboxStatus['child2']} onCheckboxChange={handleCheckboxChange} itemName={"Coca-cola"}/>
-      <ShoppingListItem childId="child3" isChecked={checkboxStatus['child3']} onCheckboxChange={handleCheckboxChange} itemName={"Eieren"}/>
-      <p>Checkboxes are {percentageChecked? percentageChecked : 0} percent checked</p>
+    <div className="shoppinglistpage">
+      <div className="shoppinglistheader">
+        <div className="shoppinglistheader__subpart">
+          <a href="/"><ArrowBackIcon/></a> <span className="shoppinglistheader__listname">List name</span>
+        </div>
+        <div className="shoppinglistheader__subpart">
+        <PersonAddIcon/><MoreVertIcon/>
+        </div>
+      </div>
+      <div>
+        <BorderLinearProgress variant="determinate" value={percentageChecked? percentageChecked : 0}/>
+        <ShoppingListItem childId="child1" isChecked={checkboxStatus['child1']} onCheckboxChange={handleCheckboxChange} itemName={"Brood"}/>
+        <ShoppingListItem childId="child2" isChecked={checkboxStatus['child2']} onCheckboxChange={handleCheckboxChange} itemName={"Coca-cola"}/>
+        <ShoppingListItem childId="child3" isChecked={checkboxStatus['child3']} onCheckboxChange={handleCheckboxChange} itemName={"Eieren"}/>
+     </div>
     </div>
+    
   );
 }
