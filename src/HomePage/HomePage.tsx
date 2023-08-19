@@ -9,7 +9,7 @@ export default function HomePage() {
       <ShoppingListCard isGroup={true} checkedOffAmount={7} listSize={10} />
       <ShoppingListCard isGroup={true} checkedOffAmount={1} listSize={5} />
       <ShoppingListCard isGroup={false} checkedOffAmount={11} listSize={20} />
-      <button>Add item +</button>
+      <button>Add shoppinglist +</button>
     </>
   );
 }
