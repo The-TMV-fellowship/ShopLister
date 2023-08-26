@@ -53,15 +53,15 @@ export default function ShoppingListPage() {
   };
 
   return (
-    <div className="shoppinglistpage">
-      <div className="shoppinglistheader">
-        <div className="shoppinglistheader__subpart">
+    <div className="shoppingListPage">
+      <div className="shoppingListHeader">
+        <div className="shoppingListHeader__subPart">
           <a href="/">
             <ArrowBackIcon />
           </a>{" "}
-          <span className="shoppinglistheader__listname">List name</span>
+          <span className="shoppingListHeader__listName">List name</span>
         </div>
-        <div className="shoppinglistheader__subpart">
+        <div className="shoppingListHeader__subPart">
           <PersonAddIcon />
           <ExtraOptionsMenu />
         </div>

@@ -1,5 +1,9 @@
+import CategoryIcon from "@mui/icons-material/Category";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import UndoIcon from "@mui/icons-material/Undo";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -9,6 +13,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
+import "./ExtraOptionsMenu.scss";
 
 type Anchor = "bottom";
 
@@ -39,12 +44,12 @@ export default function ExtraOptionsMenu() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        <div>Manage list</div>
+      <List className="popupMenu">
+        <div className="popupMenu__popupTitle">Manage list</div>
         <ListItem key={"Share list"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <InboxIcon />
+              <PersonAddIcon />
             </ListItemIcon>
             <ListItemText primary={"Share list"} />
           </ListItemButton>
@@ -53,7 +58,7 @@ export default function ExtraOptionsMenu() {
         <ListItem key={"Sort by"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <InboxIcon />
+              <CategoryIcon />
             </ListItemIcon>
             <ListItemText primary={"Sort by"} />
           </ListItemButton>
@@ -62,7 +67,7 @@ export default function ExtraOptionsMenu() {
         <ListItem key={"show prices"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <InboxIcon />
+              <LocalOfferIcon />
             </ListItemIcon>
             <ListItemText primary={"show prices"} />
           </ListItemButton>
@@ -71,7 +76,7 @@ export default function ExtraOptionsMenu() {
         <ListItem key={"Uncheck all items"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <InboxIcon />
+              <UndoIcon />
             </ListItemIcon>
             <ListItemText primary={"Uncheck all items"} />
           </ListItemButton>
@@ -80,7 +85,7 @@ export default function ExtraOptionsMenu() {
         <ListItem key={"Delete purchased items"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <InboxIcon />
+              <DeleteForeverIcon />
             </ListItemIcon>
             <ListItemText primary={"Delete purchased items"} />
           </ListItemButton>
@@ -98,6 +103,11 @@ export default function ExtraOptionsMenu() {
             <MoreVertIcon />
           </a>
           <SwipeableDrawer
+            PaperProps={{
+              sx: {
+                borderRadius: "1rem 1rem 0 0",
+              },
+            }}
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
