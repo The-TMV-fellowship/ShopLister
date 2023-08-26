@@ -6,14 +6,16 @@
   text-align: center;
 }
 
-button{
+button {
   float: right;
   border-radius: 5rem;
 }
 
-.homepageheader{
+.homepageheader {
   display: flex;
-  &__pagedescription{
+  margin-bottom: 1rem;
+  &__pagedescription {
     font-weight: bold;
+    margin-left: 1rem;
   }
 }
