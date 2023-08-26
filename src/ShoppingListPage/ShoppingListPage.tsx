@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
-import ShoppingListItem from "./ShoppingListItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useEffect, useState } from "react";
+import ExtraOptionsMenu from "./ExtraOptionsMenu";
+import ShoppingListItem from "./ShoppingListItem";
 
 export default function ShoppingListPage() {
-
   const [checkboxStatus, setCheckboxStatus] = useState({});
   const [percentageChecked, setPercentageChecked] = useState<number>(0);
 
@@ -28,7 +27,6 @@ export default function ShoppingListPage() {
       backgroundColor: theme.palette.mode === "light" ? "green" : "#308fe8",
     },
   }));
-  
 
   useEffect(() => {
     calculateCheckedBoxAmount();
@@ -42,34 +40,57 @@ export default function ShoppingListPage() {
   };
 
   const calculateCheckedBoxAmount = () => {
-    let amountChecked:number = 0;
+    let amountChecked: number = 0;
     for (const [key, value] of Object.entries(checkboxStatus)) {
-      if(value === true){
+      if (value === true) {
         amountChecked++;
       }
     }
-     setPercentageChecked(Math.round((amountChecked/ Object.keys(checkboxStatus).length) * 100));
-     console.log(checkboxStatus);
-  }
+    setPercentageChecked(
+      Math.round((amountChecked / Object.keys(checkboxStatus).length) * 100)
+    );
+    console.log(checkboxStatus);
+  };
 
   return (
     <div className="shoppinglistpage">
       <div className="shoppinglistheader">
         <div className="shoppinglistheader__subpart">
-          <a href="/"><ArrowBackIcon/></a> <span className="shoppinglistheader__listname">List name</span>
+          <a href="/">
+            <ArrowBackIcon />
+          </a>{" "}
+          <span className="shoppinglistheader__listname">List name</span>
         </div>
         <div className="shoppinglistheader__subpart">
-        <PersonAddIcon/><MoreVertIcon/>
+          <PersonAddIcon />
+          <ExtraOptionsMenu />
         </div>
       </div>
       <div>
-        <BorderLinearProgress variant="determinate" value={percentageChecked? percentageChecked : 0}/>
-        <ShoppingListItem childId="child1" isChecked={checkboxStatus['child1']} onCheckboxChange={handleCheckboxChange} itemName={"Brood"}/>
-        <ShoppingListItem childId="child2" isChecked={checkboxStatus['child2']} onCheckboxChange={handleCheckboxChange} itemName={"Coca-cola"}/>
-        <ShoppingListItem childId="child3" isChecked={checkboxStatus['child3']} onCheckboxChange={handleCheckboxChange} itemName={"Eieren"}/>
-     </div>
-     <button>Add item +</button>
+        <BorderLinearProgress
+          variant="determinate"
+          value={percentageChecked ? percentageChecked : 0}
+        />
+        <ShoppingListItem
+          childId="child1"
+          isChecked={checkboxStatus["child1"]}
+          onCheckboxChange={handleCheckboxChange}
+          itemName={"Brood"}
+        />
+        <ShoppingListItem
+          childId="child2"
+          isChecked={checkboxStatus["child2"]}
+          onCheckboxChange={handleCheckboxChange}
+          itemName={"Coca-cola"}
+        />
+        <ShoppingListItem
+          childId="child3"
+          isChecked={checkboxStatus["child3"]}
+          onCheckboxChange={handleCheckboxChange}
+          itemName={"Eieren"}
+        />
+      </div>
+      <button>Add item +</button>
     </div>
-    
   );
 }

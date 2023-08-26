@@ -4,8 +4,8 @@ import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
 import NotFound from "./NotFound/NotFound";
 import RegisterPage from "./Register/RegisterPage";
-import WelcomePage from "./WelcomePage/WelcomePage";
 import ShoppingListPage from "./ShoppingListPage/ShoppingListPage";
+import WelcomePage from "./WelcomePage/WelcomePage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="/shoppinglist" element={<ShoppingListPage/>}/>
+        <Route path="/shoppinglist" element={<ShoppingListPage />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
