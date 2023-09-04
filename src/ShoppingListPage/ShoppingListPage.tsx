@@ -1,10 +1,10 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import AddMembersMenu from "./AddMembersMenu";
 import ExtraOptionsMenu from "./ExtraOptionsMenu";
 import ShoppingListItem from "./ShoppingListItem";
 
@@ -62,7 +62,7 @@ export default function ShoppingListPage() {
           <span className="shoppingListHeader__listName">List name</span>
         </div>
         <div className="shoppingListHeader__subPart">
-          <PersonAddIcon />
+          <AddMembersMenu />
           <ExtraOptionsMenu />
         </div>
       </div>
