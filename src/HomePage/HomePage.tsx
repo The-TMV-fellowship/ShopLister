@@ -1,4 +1,4 @@
-import MenuIcon from "@mui/icons-material/Menu";
+import HamburgerMenu from "./HamburgerMenu";
 import "./HomePage.scss";
 import ShoppingListCard from "./ShoppingListCard";
 
@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <>
       <div className="homepageHeader">
-        <MenuIcon />{" "}
+        <HamburgerMenu />
         <span className="homepageHeader__pageDescription">
           Your shoppinglists
         </span>
