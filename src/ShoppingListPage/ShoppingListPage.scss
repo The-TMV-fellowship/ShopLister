@@ -1,0 +1,53 @@
+@import "./../variables";
+
+.shoppingListPage {
+  height: 100vh;
+  button {
+    float: right;
+    border-radius: 5rem;
+  }
+}
+
+.shoppingListItem {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__leftHalf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  input {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  &__lineThrough {
+  }
+  &__lineThrough:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 0.25rem solid white;
+    width: 100%;
+  }
+}
+
+.shoppingListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  &__subPart {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__listName {
+    font-weight: bold;
+  }
+  a {
+    color: white;
+  }
+}
