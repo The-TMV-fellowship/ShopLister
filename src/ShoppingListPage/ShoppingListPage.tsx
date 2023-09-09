@@ -49,7 +49,6 @@ export default function ShoppingListPage() {
     setPercentageChecked(
       Math.round((amountChecked / Object.keys(checkboxStatus).length) * 100)
     );
-    console.log(checkboxStatus);
   };
 
   return (
