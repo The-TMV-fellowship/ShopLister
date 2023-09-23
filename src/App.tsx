@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.scss";
 import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
+import LoginPage from "./Login/LoginPage";
 import NotFound from "./NotFound/NotFound";
 import RegisterPage from "./Register/RegisterPage";
 import ShoppingListPage from "./ShoppingListPage/ShoppingListPage";
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/shoppinglist" element={<ShoppingListPage />} />
 

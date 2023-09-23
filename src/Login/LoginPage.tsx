@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginFormData } from "../interfaces/types";
 import "./LoginPage.scss";
-import { validateForm, validationSchema } from "./LoginPageLogic";
+import { loginUser, validateForm, validationSchema } from "./LoginPageLogic";
 
 export default function LoginPage() {
   const initialValues: LoginFormData = {
@@ -20,7 +20,7 @@ export default function LoginPage() {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        // await createUser(values);
+        await loginUser(values);
         navigate("/");
       } catch (error) {
         console.log(error);
@@ -90,9 +90,9 @@ export default function LoginPage() {
         </Form>
       </Formik>
       <p className="loginPage__register">
-        Already have an account?{" "}
+        Don't have an account yet?{" "}
         <a className="loginPage__registerLink" href="/register">
-          Login
+          Register
         </a>
       </p>
     </div>
