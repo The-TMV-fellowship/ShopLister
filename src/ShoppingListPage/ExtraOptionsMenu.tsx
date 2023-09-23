@@ -1,6 +1,5 @@
 import CategoryIcon from "@mui/icons-material/Category";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import UndoIcon from "@mui/icons-material/Undo";
@@ -61,15 +60,6 @@ export default function ExtraOptionsMenu() {
               <CategoryIcon />
             </ListItemIcon>
             <ListItemText primary={"Sort by"} />
-          </ListItemButton>
-        </ListItem>
-        <Divider />
-        <ListItem key={"show prices"} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <LocalOfferIcon />
-            </ListItemIcon>
-            <ListItemText primary={"show prices"} />
           </ListItemButton>
         </ListItem>
         <Divider />
