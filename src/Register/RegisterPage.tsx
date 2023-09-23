@@ -12,8 +12,7 @@ import {
 
 export default function RegisterPage() {
   const initialValues: RegisterFormData = {
-    firstName: "",
-    lastName: "",
+    username: "",
     email: "",
     password: "",
   };
@@ -51,32 +50,16 @@ export default function RegisterPage() {
       >
         <Form className="form">
           <div className="registerFormField">
-            <label htmlFor="firstName" className="registerFormField__label">
-              First Name
+            <label htmlFor="username" className="registerFormField__label">
+              username
             </label>
             <Field
               type="text"
-              name="firstName"
+              name="username"
               className="registerFormField__field"
             />
             <ErrorMessage
-              name="firstName"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <div className="registerFormField">
-            <label htmlFor="lastName" className="registerFormField__label">
-              Last Name
-            </label>
-            <Field
-              type="text"
-              name="lastName"
-              className="registerFormField__field"
-            />
-            <ErrorMessage
-              name="lastName"
+              name="username"
               component="div"
               className="error-message"
             />
