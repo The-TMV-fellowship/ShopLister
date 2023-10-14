@@ -29,5 +29,5 @@ export const validateForm = async (values: LoginFormData) => {
 export async function loginUser(values: LoginFormData) {
   const API_BASE_URL = import.meta.env.VITE_API_URL as string;
 
-  await axios.post(`http://127.0.0.1:8000/api/login`, values);
+  await axios.post(`http://127.0.0.1:8000/api/login_check`, values);
 }
