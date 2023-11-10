@@ -1,9 +1,12 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./AddList.scss";
 
 export default function AddList() {
   return (
     <div className="addListContainer">
-      <span>Back button placeholder</span>
+      <a href="/">
+        <ArrowBackIcon />
+      </a>
       <input
         type="text"
         placeholder="New list"
