@@ -1,4 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import AddList from "./AddList/AddList";
 import "./App.scss";
 import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
@@ -17,8 +18,8 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="/shoppinglist" element={<ShoppingListPage />} />
-
+        <Route path="/shoppinglist" element={<ShoppingListPage />} />'
+        <Route path="/addlist" element={<AddList />} />'
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
