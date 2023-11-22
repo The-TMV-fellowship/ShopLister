@@ -8,7 +8,7 @@ import { loginUser, validateForm, validationSchema } from "./LoginPageLogic";
 
 export default function LoginPage() {
   const initialValues: LoginFormData = {
-    email: "",
+    username: "",
     password: "",
   };
   const [loading, setLoading] = useState(false);
@@ -45,16 +45,16 @@ export default function LoginPage() {
       >
         <Form className="form">
           <div className="loginFormField">
-            <label htmlFor="email" className="loginFormField__label">
-              Email
+            <label htmlFor="username" className="loginFormField__label">
+              Username
             </label>
             <Field
-              type="email"
-              name="email"
+              type="username"
+              name="username"
               className="loginFormField__field"
             />
             <ErrorMessage
-              name="email"
+              name="username"
               component="div"
               className="error-message"
             />

@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { LoginFormData } from "../interfaces/types";
 
 export const validationSchema: Yup.ObjectSchema<LoginFormData> = Yup.object({
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  username: Yup.string()/*.email("Invalid username")*/.required("Username is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
