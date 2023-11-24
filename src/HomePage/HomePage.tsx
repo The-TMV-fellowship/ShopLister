@@ -1,8 +1,24 @@
+import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import "./HomePage.scss";
+import fetchShoppingLists from "./HomepageLogic";
 import ShoppingListCard from "./ShoppingListCard";
 
 export default function HomePage() {
+  const [lists, setLists] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedLists = await fetchShoppingLists();
+        setLists(fetchedLists);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="homepageHeader">
@@ -11,12 +27,19 @@ export default function HomePage() {
           Your shoppinglists
         </span>
       </div>
-
-      <ShoppingListCard isGroup={true} checkedOffAmount={5} listSize={5} />
-      <ShoppingListCard isGroup={false} checkedOffAmount={2} listSize={4} />
-      <ShoppingListCard isGroup={true} checkedOffAmount={7} listSize={10} />
-      <ShoppingListCard isGroup={true} checkedOffAmount={1} listSize={5} />
-      <ShoppingListCard isGroup={false} checkedOffAmount={11} listSize={20} />
+      {lists !== null ? (
+        lists.map((list) => (
+          <ShoppingListCard
+            key={list.id} // Assuming each list has a unique identifier
+            listName={list.name}
+            isGroup={true}
+            checkedOffAmount={5}
+            listSize={5}
+          />
+        ))
+      ) : (
+        <span>You currently don't have any shoppinglists</span>
+      )}
       <a className="button" href="/addlist">
         Add shoppinglist +
       </a>

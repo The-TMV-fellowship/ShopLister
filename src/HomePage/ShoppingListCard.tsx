@@ -26,10 +26,12 @@ function ShoppingListCard({
   isGroup,
   checkedOffAmount,
   listSize,
+  listName,
 }: {
   isGroup: boolean;
   checkedOffAmount: number;
   listSize: number;
+  listName: string;
 }) {
   const percentageCheckedOff: number = Math.trunc(
     (checkedOffAmount / listSize) * 100
@@ -38,9 +40,7 @@ function ShoppingListCard({
   return (
     <a href="/shoppinglist" className="ShoppingListCard">
       <div className="ShoppingListCard__TopRow">
-        <span className="ShoppingListCard__Title">
-          Shoppinglist voor de vrijdag
-        </span>
+        <span className="ShoppingListCard__Title">{listName}</span>
         {isGroup === true ? <GroupsIcon /> : <PersonIcon />}
       </div>
       <div className="ShoppingListCard__BottomRow">

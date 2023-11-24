@@ -4,7 +4,7 @@ import "./AddList.scss";
 export default function AddList() {
   return (
     <div className="addListContainer">
-      <a href="/">
+      <a href="/" className="backArrow">
         <ArrowBackIcon />
       </a>
       <input
