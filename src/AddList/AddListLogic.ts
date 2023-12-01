@@ -5,10 +5,11 @@ import { AddListData } from "../interfaces/types";
 export default async function addShoppingList(listname:string) {
   //const API_BASE_URL = import.meta.env.VITE_API_URL as string;
   const bearerToken = sessionStorage.getItem("token");
+  const ownerID = parseInt(sessionStorage.getItem("userID"));
   let listData = {
 	"name": listname,
 	"content": ["empty"],
-  "ownerID": 1
+  "ownerID": ownerID
 };
 
   await axios

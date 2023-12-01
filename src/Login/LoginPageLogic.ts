@@ -31,5 +31,6 @@ export async function loginUser(values: LoginFormData) {
 
   await axios.post(`http://127.0.0.1:8000/api/login_check`, values).then((response) => {
    sessionStorage.setItem("token", response.data.token);
+   sessionStorage.setItem("userID", response.data.userId);
   });
 }
