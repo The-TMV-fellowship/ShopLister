@@ -8,3 +8,7 @@ export interface LoginFormData {
   password: string;
   username: string;
 }
+
+export interface AddListData {
+  listname: string;
+}
