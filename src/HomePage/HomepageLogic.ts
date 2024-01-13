@@ -9,7 +9,7 @@ export default async function fetchShoppingLists() {
     .get(`http://127.0.0.1:8000/api/ShopLists`, {
       headers: {
         Authorization: `Bearer ${bearerToken}`,
-        "Content-Type": "application/json", // Set the content type if needed
+        "Content-Type": "application/json",
       },
     })
     .then((response) => {

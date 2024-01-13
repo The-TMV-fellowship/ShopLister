@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 import AddMembersMenu from "./AddMembersMenu";
 import ExtraOptionsMenu from "./ExtraOptionsMenu";
 import ShoppingListItem from "./ShoppingListItem";
+import { ShoppingListPageLogic } from "./ShoppingListPageLogic";
 
 export default function ShoppingListPage() {
   const [checkboxStatus, setCheckboxStatus] = useState({});
+  const [listData, setListData] = useState(null);
   const [percentageChecked, setPercentageChecked] = useState<number>(0);
 
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -30,7 +32,21 @@ export default function ShoppingListPage() {
 
   useEffect(() => {
     calculateCheckedBoxAmount();
+    const listId: number = parseInt(
+      sessionStorage.getItem("shoppingListId"),
+      10
+    );
+
+    fetchShoppingListData(listId);
   }, [checkboxStatus]);
+
+  const fetchShoppingListData = (listId: number) => {
+    ShoppingListPageLogic(listId)
+      .then((data) => setListData(data))
+      .catch((error) =>
+        console.error("Error fetching shopping list data:", error)
+      );
+  };
 
   const handleCheckboxChange = (childId, isChecked) => {
     setCheckboxStatus((prevStatus) => ({
@@ -58,7 +74,9 @@ export default function ShoppingListPage() {
           <a href="/">
             <ArrowBackIcon />
           </a>{" "}
-          <span className="shoppingListHeader__listName">List name</span>
+          <span className="shoppingListHeader__listName">
+            {listData ? listData.name : "List name"}
+          </span>
         </div>
         <div className="shoppingListHeader__subPart">
           <AddMembersMenu />
