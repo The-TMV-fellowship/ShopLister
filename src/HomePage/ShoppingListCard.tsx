@@ -4,6 +4,7 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 import "./ShoppingListCard.scss";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -23,22 +24,31 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function ShoppingListCard({
+  listId,
   isGroup,
   checkedOffAmount,
   listSize,
   listName,
 }: {
+  listId: number;
   isGroup: boolean;
   checkedOffAmount: number;
   listSize: number;
   listName: string;
 }) {
+  const navigate = useNavigate();
+
   const percentageCheckedOff: number = Math.trunc(
     (checkedOffAmount / listSize) * 100
   );
 
+  const setListId = (Id: number) => {
+    sessionStorage.setItem("shoppingListId", Id);
+    navigate("shoppinglist");
+  };
+
   return (
-    <a href="/shoppinglist" className="ShoppingListCard">
+    <button onClick={() => setListId(listId)} className="ShoppingListCard">
       <div className="ShoppingListCard__TopRow">
         <span className="ShoppingListCard__Title">{listName}</span>
         {isGroup === true ? <GroupsIcon /> : <PersonIcon />}
@@ -52,7 +62,7 @@ function ShoppingListCard({
           {checkedOffAmount}/{listSize}
         </span>
       </div>
-    </a>
+    </button>
   );
 }
 

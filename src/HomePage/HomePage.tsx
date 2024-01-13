@@ -31,6 +31,7 @@ export default function HomePage() {
         lists.map((list) => (
           <ShoppingListCard
             key={list.id} // Assuming each list has a unique identifier
+            listId={list.id}
             listName={list.name}
             isGroup={true}
             checkedOffAmount={5}
