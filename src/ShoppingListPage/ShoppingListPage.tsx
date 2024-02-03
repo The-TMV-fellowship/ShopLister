@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import AddMembersMenu from "./AddMembersMenu";
 import ExtraOptionsMenu from "./ExtraOptionsMenu";
 import ShoppingListItem from "./ShoppingListItem";
-import { ShoppingListPageLogic } from "./ShoppingListPageLogic";
+import fetchShoppingListData from "./ShoppingListPageLogic";
 
 export default function ShoppingListPage() {
   const [checkboxStatus, setCheckboxStatus] = useState({});
@@ -36,12 +36,11 @@ export default function ShoppingListPage() {
       sessionStorage.getItem("shoppingListId"),
       10
     );
-
-    fetchShoppingListData(listId);
+    fetchData(listId);
   }, [checkboxStatus]);
 
-  const fetchShoppingListData = (listId: number) => {
-    ShoppingListPageLogic(listId)
+  const fetchData = (listId: number) => {
+    fetchShoppingListData(listId)
       .then((data) => setListData(data))
       .catch((error) =>
         console.error("Error fetching shopping list data:", error)
@@ -88,24 +87,19 @@ export default function ShoppingListPage() {
           variant="determinate"
           value={percentageChecked ? percentageChecked : 0}
         />
-        <ShoppingListItem
-          childId="child1"
-          isChecked={checkboxStatus["child1"]}
-          onCheckboxChange={handleCheckboxChange}
-          itemName={"Brood"}
-        />
-        <ShoppingListItem
-          childId="child2"
-          isChecked={checkboxStatus["child2"]}
-          onCheckboxChange={handleCheckboxChange}
-          itemName={"Coca-cola"}
-        />
-        <ShoppingListItem
-          childId="child3"
-          isChecked={checkboxStatus["child3"]}
-          onCheckboxChange={handleCheckboxChange}
-          itemName={"Eieren"}
-        />
+        {listData && listData.content.length !== 0 ? (
+          listData.content.map((item) => (
+            <ShoppingListItem
+              key={item}
+              childId="child1"
+              isChecked={checkboxStatus["child1"]}
+              onCheckboxChange={handleCheckboxChange}
+              itemName={item}
+            />
+          ))
+        ) : (
+          <span>You currently don't have any items in this list.</span>
+        )}
       </div>
       <button>Add item +</button>
     </div>

@@ -8,7 +8,7 @@ export default async function addShoppingList(listname:string) {
   const ownerID = parseInt(sessionStorage.getItem("userID"));
   let listData = {
 	"name": listname,
-	"content": ["empty"],
+	"content": [],
   "ownerID": ownerID
 };
 
