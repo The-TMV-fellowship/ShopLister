@@ -8,16 +8,17 @@ export default function HomePage() {
   const [lists, setLists] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedLists = await fetchShoppingLists();
-        setLists(fetchedLists);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const fetchedLists = await fetchShoppingLists();
+      setLists(fetchedLists);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <>
