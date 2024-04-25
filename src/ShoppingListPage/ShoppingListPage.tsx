@@ -4,10 +4,11 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import AddItemsMenu from "./AddItemsMenu";
 import AddMembersMenu from "./AddMembersMenu";
 import ExtraOptionsMenu from "./ExtraOptionsMenu";
 import ShoppingListItem from "./ShoppingListItem";
-import fetchShoppingListData from "./ShoppingListPageLogic";
+import { fetchShoppingListData } from "./ShoppingListPageLogic";
 
 export default function ShoppingListPage() {
   const [checkboxStatus, setCheckboxStatus] = useState({});
@@ -101,7 +102,7 @@ export default function ShoppingListPage() {
           <span>You currently don't have any items in this list.</span>
         )}
       </div>
-      <button>Add item +</button>
+      <AddItemsMenu />
     </div>
   );
 }

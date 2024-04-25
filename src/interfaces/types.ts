@@ -12,3 +12,7 @@ export interface LoginFormData {
 export interface AddListData {
   listname: string;
 }
+
+export interface AddItemFormData {
+  itemName: string;
+}
