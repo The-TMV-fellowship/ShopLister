@@ -21,7 +21,7 @@ export async function fetchShoppingListData(listId: number) {
     return(fetchedListData);
 }
 
-export async function addItemToList(ownerId: number, listName: string, itemName: string) {
+export async function addItemToList(ownerId: number, listId: number, listName: string, itemName: string) {
   //const API_BASE_URL = import.meta.env.VITE_API_URL as string;
   const bearerToken = sessionStorage.getItem("token");
   let fetchedListData;
@@ -31,7 +31,7 @@ export async function addItemToList(ownerId: number, listName: string, itemName:
     "ownerID": ownerId
   };
 
-  await axios.post(`http://127.0.0.1:8000/api/createShopList`, itemData , {
+  await axios.put(`http://127.0.0.1:8000/api/ShopLists/` + listId, itemData , {
     headers: {
       Authorization: `Bearer ${bearerToken}`,
       "Content-Type": "application/json",

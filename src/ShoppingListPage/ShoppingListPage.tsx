@@ -14,6 +14,7 @@ export default function ShoppingListPage() {
   const [checkboxStatus, setCheckboxStatus] = useState({});
   const [listData, setListData] = useState(null);
   const [percentageChecked, setPercentageChecked] = useState<number>(0);
+  const [userID, setUserID] = useState(null);
 
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
@@ -38,6 +39,7 @@ export default function ShoppingListPage() {
       10
     );
     fetchData(listId);
+    setUserID(sessionStorage.getItem("userID"));
   }, [checkboxStatus]);
 
   const fetchData = (listId: number) => {
@@ -102,7 +104,14 @@ export default function ShoppingListPage() {
           <span>You currently don't have any items in this list.</span>
         )}
       </div>
-      <AddItemsMenu />
+      {listData ? (
+        <AddItemsMenu
+          userID={userID}
+          shoppingListId={listData.id}
+          ShoppingListName={listData.name}
+          currentListData={listData.content}
+        />
+      ) : null}
     </div>
   );
 }

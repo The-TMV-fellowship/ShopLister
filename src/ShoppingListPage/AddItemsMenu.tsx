@@ -4,12 +4,13 @@ import List from "@mui/material/List";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { Field, Form, Formik } from "formik";
 import * as React from "react";
-import { AddItemFormData } from "../interfaces/types";
+import { AddItemFormData, AddItemToForm } from "../interfaces/types";
 import "./ExtraOptionsMenu.scss";
+import { addItemToList } from "./ShoppingListPageLogic";
 
 type Anchor = "bottom";
 
-export default function AddItemsMenu() {
+export default function AddItemsMenu(values: AddItemToForm) {
   const initialValues: AddItemFormData = {
     itemName: "",
   };
@@ -33,8 +34,13 @@ export default function AddItemsMenu() {
       setState({ ...state, [anchor]: open });
     };
 
-  const handleSubmit = async (values: AddItemFormData) => {
-    console.log("Button is clicked");
+  const handleSubmit = async (itemToAdd: AddItemFormData) => {
+    addItemToList(
+      values.userID,
+      values.shoppingListId,
+      values.ShoppingListName,
+      itemToAdd.itemName
+    );
   };
 
   const list = (anchor: Anchor) => (
@@ -80,7 +86,9 @@ export default function AddItemsMenu() {
     <div>
       {(["bottom"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          <button onClick={toggleDrawer(anchor, true)}>Add item +</button>
+          <button type="button" onClick={toggleDrawer(anchor, true)}>
+            Add item +
+          </button>
           <SwipeableDrawer
             PaperProps={{
               sx: {

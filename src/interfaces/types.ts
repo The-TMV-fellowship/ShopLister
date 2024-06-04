@@ -16,3 +16,11 @@ export interface AddListData {
 export interface AddItemFormData {
   itemName: string;
 }
+
+export interface AddItemToForm {
+  userID: number,
+  shoppingListId: number,
+  ShoppingListName: string,
+  itemName: string,
+  currentListData:[string]
+}
