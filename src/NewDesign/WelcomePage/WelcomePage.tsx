@@ -1,12 +1,22 @@
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import "../../_variables.scss";
+import WelcomePageWave from "../../assets/WelcomePageWave.svg";
+import "./WelcomePage.scss";
+
 export default function WelcomePage() {
   return (
     <div>
-      <h1>Welcome</h1>
-      <div>
-        Using shoplister you can save out on paper and instead make your
-        shoppinglists digitally.
+      <img src={WelcomePageWave}></img>
+      <div className="subContainer">
+        <h1>Welcome</h1>
+        <p>
+          Using shoplister you can save out on paper and instead make your
+          shoppinglists digitally.
+        </p>
+        <button className="button">
+          Next <ArrowForwardIcon className="arrow" />
+        </button>
       </div>
-      <button>Next</button>
     </div>
   );
 }
