@@ -1,8 +1,8 @@
-import CategoryIcon from "@mui/icons-material/Category";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import UndoIcon from "@mui/icons-material/Undo";
+import DeleteIcon from "@mui/icons-material/Delete";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import FormatPaintIcon from "@mui/icons-material/FormatPaint";
+import MenuIcon from "@mui/icons-material/Menu";
+import SettingsIcon from "@mui/icons-material/Settings";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -12,13 +12,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
-import "./ExtraOptionsMenu.scss";
+import "./HamburgerMenu.scss";
 
-type Anchor = "bottom";
+type Anchor = "left";
 
-export default function ExtraOptionsMenu() {
+export default function HamburgerMenu() {
   const [state, setState] = React.useState({
-    bottom: false,
+    left: false,
   });
 
   const toggleDrawer =
@@ -38,66 +38,61 @@ export default function ExtraOptionsMenu() {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: anchor === "bottom" ? "auto" : 250 }}
+      sx={{ width: anchor === "left" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className="popupMenu">
         <div className="popupMenu__popupTitle">Manage list</div>
-        <ListItem key={"Share list"} disablePadding>
+        <ListItem key={"Lists"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <PersonAddIcon />
+              <FormatListBulletedIcon />
             </ListItemIcon>
-            <ListItemText primary={"Share list"} />
+            <ListItemText primary={"Lists"} />
           </ListItemButton>
         </ListItem>
         <Divider />
-        <ListItem key={"Sort by"} disablePadding>
+        <ListItem key={"Trash"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <CategoryIcon />
+              <DeleteIcon />
             </ListItemIcon>
-            <ListItemText primary={"Sort by"} />
+            <ListItemText primary={"Trash"} />
           </ListItemButton>
         </ListItem>
         <Divider />
-        <ListItem key={"Uncheck all items"} disablePadding>
+        <ListItem key={"Settings"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <UndoIcon />
+              <SettingsIcon />
             </ListItemIcon>
-            <ListItemText primary={"Uncheck all items"} />
+            <ListItemText primary={"Settings"} />
           </ListItemButton>
         </ListItem>
         <Divider />
-        <ListItem key={"Delete purchased items"} disablePadding>
+        <ListItem key={"Appearance"} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <DeleteForeverIcon />
+              <FormatPaintIcon />
             </ListItemIcon>
-            <ListItemText primary={"Delete purchased items"} />
+            <ListItemText primary={"Appearance"} />
           </ListItemButton>
         </ListItem>
+        <Divider />
       </List>
-      <Divider />
     </Box>
   );
 
   return (
     <div>
-      {(["bottom"] as const).map((anchor) => (
+      {(["left"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <a onClick={toggleDrawer(anchor, true)}>
-            <MoreVertIcon />
+            <MenuIcon />
           </a>
           <SwipeableDrawer
-            PaperProps={{
-              sx: {
-                borderRadius: "1rem 1rem 0 0",
-              },
-            }}
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}

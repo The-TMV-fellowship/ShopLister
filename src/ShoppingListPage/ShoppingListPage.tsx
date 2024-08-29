@@ -1,16 +1,20 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import AddItemsMenu from "./AddItemsMenu";
+import AddMembersMenu from "./AddMembersMenu";
 import ExtraOptionsMenu from "./ExtraOptionsMenu";
 import ShoppingListItem from "./ShoppingListItem";
+import { fetchShoppingListData } from "./ShoppingListPageLogic";
 
 export default function ShoppingListPage() {
   const [checkboxStatus, setCheckboxStatus] = useState({});
+  const [listData, setListData] = useState(null);
   const [percentageChecked, setPercentageChecked] = useState<number>(0);
+  const [userID, setUserID] = useState(null);
 
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
@@ -30,7 +34,21 @@ export default function ShoppingListPage() {
 
   useEffect(() => {
     calculateCheckedBoxAmount();
+    const listId: number = parseInt(
+      sessionStorage.getItem("shoppingListId"),
+      10
+    );
+    fetchData(listId);
+    setUserID(sessionStorage.getItem("userID"));
   }, [checkboxStatus]);
+
+  const fetchData = (listId: number) => {
+    fetchShoppingListData(listId)
+      .then((data) => setListData(data))
+      .catch((error) =>
+        console.error("Error fetching shopping list data:", error)
+      );
+  };
 
   const handleCheckboxChange = (childId, isChecked) => {
     setCheckboxStatus((prevStatus) => ({
@@ -49,7 +67,6 @@ export default function ShoppingListPage() {
     setPercentageChecked(
       Math.round((amountChecked / Object.keys(checkboxStatus).length) * 100)
     );
-    console.log(checkboxStatus);
   };
 
   return (
@@ -59,10 +76,12 @@ export default function ShoppingListPage() {
           <a href="/">
             <ArrowBackIcon />
           </a>{" "}
-          <span className="shoppingListHeader__listName">List name</span>
+          <span className="shoppingListHeader__listName">
+            {listData ? listData.name : "List name"}
+          </span>
         </div>
         <div className="shoppingListHeader__subPart">
-          <PersonAddIcon />
+          <AddMembersMenu />
           <ExtraOptionsMenu />
         </div>
       </div>
@@ -71,26 +90,28 @@ export default function ShoppingListPage() {
           variant="determinate"
           value={percentageChecked ? percentageChecked : 0}
         />
-        <ShoppingListItem
-          childId="child1"
-          isChecked={checkboxStatus["child1"]}
-          onCheckboxChange={handleCheckboxChange}
-          itemName={"Brood"}
-        />
-        <ShoppingListItem
-          childId="child2"
-          isChecked={checkboxStatus["child2"]}
-          onCheckboxChange={handleCheckboxChange}
-          itemName={"Coca-cola"}
-        />
-        <ShoppingListItem
-          childId="child3"
-          isChecked={checkboxStatus["child3"]}
-          onCheckboxChange={handleCheckboxChange}
-          itemName={"Eieren"}
-        />
+        {listData && listData.content.length !== 0 ? (
+          listData.content.map((item) => (
+            <ShoppingListItem
+              key={item}
+              childId="child1"
+              isChecked={checkboxStatus["child1"]}
+              onCheckboxChange={handleCheckboxChange}
+              itemName={item}
+            />
+          ))
+        ) : (
+          <span>You currently don't have any items in this list.</span>
+        )}
       </div>
-      <button>Add item +</button>
+      {listData ? (
+        <AddItemsMenu
+          userID={userID}
+          shoppingListId={listData.id}
+          ShoppingListName={listData.name}
+          currentListData={listData.content}
+        />
+      ) : null}
     </div>
   );
 }

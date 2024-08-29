@@ -1,0 +1,15 @@
+.addListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 90vh;
+  &__nameInput {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.backArrow {
+  color: white;
+}
