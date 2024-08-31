@@ -32,6 +32,9 @@ p {
   width: 100px;
   margin-left: auto;
   display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .button:hover {

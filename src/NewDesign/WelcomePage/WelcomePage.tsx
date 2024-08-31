@@ -13,9 +13,9 @@ export default function WelcomePage() {
           Using shoplister you can save out on paper and instead make your
           shoppinglists digitally.
         </p>
-        <button className="button">
+        <a className="button">
           Next <ArrowForwardIcon className="arrow" />
-        </button>
+        </a>
       </div>
     </div>
   );
