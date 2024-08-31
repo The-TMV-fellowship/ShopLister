@@ -1,6 +1,6 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "../../_variables.scss";
-import WelcomePageWave from "../../assets/WelcomePageWave.svg";
+import WelcomePageWave from "../../assets/welcomePageWave.svg";
 import "./WelcomePage.scss";
 
 export default function WelcomePage() {
