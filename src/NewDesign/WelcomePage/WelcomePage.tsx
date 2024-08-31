@@ -9,7 +9,7 @@ export default function WelcomePage() {
       <img src={WelcomePageWave}></img>
       <div className="subContainer">
         <h1>Welcome</h1>
-        <p>
+        <p className="subText">
           Using shoplister you can save out on paper and instead make your
           shoppinglists digitally.
         </p>
