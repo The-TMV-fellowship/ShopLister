@@ -7,6 +7,7 @@ import {
   validateForm,
   validationSchema,
 } from "../../Register/RegisterPageLogic";
+import GeneralWave from "../../assets/generalWave.svg";
 import { RegisterFormData } from "../../interfaces/types";
 import "./RegisterPage.scss";
 
@@ -38,97 +39,69 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="registerPage">
-      <p className="registerPage__title">Register</p>
-      <p className="registerPage__desc">Pleace enter details to register</p>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-        validateOnChange={false}
-        validateOnBlur={false}
-      >
-        <Form className="form">
-          <div className="registerFormField">
-            <label htmlFor="username" className="registerFormField__label">
-              username
-            </label>
-            <Field
-              type="text"
-              name="username"
-              className="registerFormField__field"
-            />
-            <ErrorMessage
-              name="username"
-              component="div"
-              className="error-message"
-            />
-          </div>
+    <div>
+      <img src={GeneralWave}></img>
+      <div className="subContainer">
+        <h1>Sign up</h1>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={validationSchema}
+          validateOnChange={false}
+          validateOnBlur={false}
+        >
+          <Form>
+            <div className="formInput">
+              <label htmlFor="email">Email</label>
+              <Field
+                type="email"
+                name="email"
+                className="registerFormField__field"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-message"
+              />
+            </div>
 
-          <div className="registerFormField">
-            <label htmlFor="email" className="registerFormField__label">
-              Email
-            </label>
-            <Field
-              type="email"
-              name="email"
-              className="registerFormField__field"
-            />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="error-message"
-            />
-          </div>
+            <div className="formInput">
+              <label htmlFor="password">Password</label>
+              <Field
+                type="password"
+                name="password"
+                className="registerFormField__field"
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="error-message"
+              />
+            </div>
 
-          <div className="registerFormField">
-            <label htmlFor="password" className="registerFormField__label">
-              Password
-            </label>
-            <Field
-              type="password"
-              name="password"
-              className="registerFormField__field"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="error-message"
-            />
-          </div>
+            <div className="formInput">
+              <label htmlFor="password">Confirm Password</label>
+              <Field type="password" name="password" />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="error-message"
+              />
+            </div>
 
-          <div className="registerFormField">
-            <label htmlFor="password" className="registerFormField__label">
-              Confirm Password
-            </label>
-            <Field
-              type="password"
-              name="password"
-              className="registerFormField__field"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="registerFormField__submit"
-            disabled={loading}
-          >
-            {loading ? (
-              <CircularProgress size={20} color="inherit" />
-            ) : (
-              "Submit"
-            )}
-          </button>
-        </Form>
-      </Formik>
-      <p>
-        Already have an account? <a>Log in</a>
-      </p>
+            <button type="submit" disabled={loading}>
+              {loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </Form>
+        </Formik>
+        <p>
+          Already have an account? <a>Log in</a>
+        </p>
+      </div>
     </div>
   );
 }
