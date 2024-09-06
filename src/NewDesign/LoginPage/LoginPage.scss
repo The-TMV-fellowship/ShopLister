@@ -1,0 +1,48 @@
+@import "../../variables";
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+img {
+  margin: -150px;
+  width: 100%;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+p {
+  text-align: left;
+  margin-bottom: 100px;
+}
+
+label {
+  text-align: left;
+}
+
+button {
+  width: 100%;
+  color: $textWhite;
+  background-color: $accent;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.belowFormText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  background-color: none;
+}
