@@ -99,7 +99,7 @@ export default function RegisterPage() {
           </Form>
         </Formik>
         <p>
-          Already have an account? <a>Log in</a>
+          Already have an account? <a href="/login">Log in</a>
         </p>
       </div>
     </div>

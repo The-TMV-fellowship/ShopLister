@@ -99,7 +99,7 @@ export default function LoginPage() {
           </Form>
         </Formik>
         <p>
-          Don't have an account? <a>Sign up</a>
+          Don't have an account? <a href="/register">Sign up</a>
         </p>
       </div>
     </div>
