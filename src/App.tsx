@@ -4,9 +4,10 @@ import "./App.scss";
 import Header from "./Header/Header";
 import LoginPage from "./NewDesign/LoginPage/LoginPage";
 //import HomePage from "./NewDesign/HomePage/HomePage";
+import RegisterPage from "./NewDesign/RegisterPage/RegisterPage";
 import WelcomePage from "./NewDesign/WelcomePage/WelcomePage";
 import NotFound from "./NotFound/NotFound";
-import RegisterPage from "./Register/RegisterPage";
+//import RegisterPage from "./Register/RegisterPage";
 import ShoppingListPage from "./ShoppingListPage/ShoppingListPage";
 
 function App() {
