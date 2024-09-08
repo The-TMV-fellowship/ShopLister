@@ -1,16 +1,27 @@
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import GeneralWave from "../../assets/generalWave.svg";
+import "./HomePage.scss";
+
 export default function HomePage() {
   return (
     <div>
-      <h1>My Lists</h1>
-      <div>
+      <img src={GeneralWave} alt="" />
+      <div className="subContainer">
+        <h1>My Lists</h1>
         <div>
-          <span>Listname</span>
-          <span>Three dots placeholder</span>
-          <span>Progress bar placeholder</span>
-          <span>0/0</span>
+          <div className="shoppingListCard">
+            <div className="shoppinglistCardSubPart">
+              <span>Listname</span>
+              <MoreVertIcon />
+            </div>
+            <div className="shoppinglistCardSubPart">
+              <span>Progress bar placeholder</span>
+              <span>0/0</span>
+            </div>
+          </div>
         </div>
+        <button>+ New list</button>
       </div>
-      <button>+ New list</button>
     </div>
   );
 }
