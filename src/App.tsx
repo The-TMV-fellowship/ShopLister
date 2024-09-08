@@ -3,11 +3,11 @@ import AddList from "./AddList/AddList";
 import "./App.scss";
 import Header from "./Header/Header";
 import LoginPage from "./NewDesign/LoginPage/LoginPage";
-//import HomePage from "./NewDesign/HomePage/HomePage";
 import RegisterPage from "./NewDesign/RegisterPage/RegisterPage";
 import WelcomePage from "./NewDesign/WelcomePage/WelcomePage";
 import NotFound from "./NotFound/NotFound";
 //import RegisterPage from "./Register/RegisterPage";
+import HomePage from "./NewDesign/HomePage/HomePage";
 import ShoppingListPage from "./ShoppingListPage/ShoppingListPage";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Header></Header>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/welcome" element={<WelcomePage />} />
