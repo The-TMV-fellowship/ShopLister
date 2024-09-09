@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import AddList from "./AddList/AddList";
 import "./App.scss";
 import Header from "./Header/Header";
+import AddListFormPage from "./NewDesign/AddListFormPage/AddListFormPage";
 import HomePage from "./NewDesign/HomePage/HomePage";
 import LoginPage from "./NewDesign/LoginPage/LoginPage";
 import RegisterPage from "./NewDesign/RegisterPage/RegisterPage";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/shoppinglist" element={<ShoppingListPage />} />'
-        <Route path="/addlist" element={<AddList />} />'
+        <Route path="/addlist" element={<AddListFormPage />} />'
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
