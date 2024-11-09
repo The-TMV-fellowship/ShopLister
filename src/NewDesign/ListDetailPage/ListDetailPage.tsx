@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export default function ListDetailPage() {
+  const navigate = useNavigate();
+
+  const navigateBackToLists = () => {
+    navigate("/");
+  }
+
   return (
     <div>
       <h1>List name</h1>
@@ -11,6 +19,7 @@ export default function ListDetailPage() {
       </div>
       <span>Progress bar plaeholder</span>
       <button>+ Add item</button>
+      <a onClick={() => navigateBackToLists()}>Cancel</a>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import LoginPage from "./NewDesign/LoginPage/LoginPage";
 import RegisterPage from "./NewDesign/RegisterPage/RegisterPage";
 import WelcomePage from "./NewDesign/WelcomePage/WelcomePage";
 import NotFound from "./NotFound/NotFound";
-import ShoppingListPage from "./ShoppingListPage/ShoppingListPage";
+import ShoppingListPage from "./NewDesign/ListDetailPage/ListDetailPage";
 
 function App() {
   return (

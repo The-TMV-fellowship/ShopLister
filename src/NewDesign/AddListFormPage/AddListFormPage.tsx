@@ -1,6 +1,7 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import GeneralWave from "../../assets/generalWave.svg";
 import "./AddListFormPage.scss";
 
@@ -9,10 +10,15 @@ const handleSubmit = async () => {
 };
 
 export default function AddListFormPage() {
+  const navigate = useNavigate();
   const initialValues = {
     listName: "",
   };
   const [loading, setLoading] = useState(false);
+
+  const navigateBackToLists = () => {
+    navigate("/");
+  }
 
   return (
     <div>
@@ -45,7 +51,7 @@ export default function AddListFormPage() {
                 "Create list"
               )}
             </button>
-            <a>Cancel</a>
+            <a onClick={() => navigateBackToLists()}>Cancel</a>
           </div>
         </Form>
       </Formik>

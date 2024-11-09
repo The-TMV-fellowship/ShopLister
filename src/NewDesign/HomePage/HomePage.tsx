@@ -1,15 +1,26 @@
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GeneralWave from "../../assets/generalWave.svg";
+import { useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 
-export default function HomePage() {
+export default function () {
+  const navigate = useNavigate();
+
+  const navigateAddlist = () => {
+    navigate("/addlist");
+  }
+
+  const navigateListDetailPage = () => {
+    navigate("/shoppinglist");
+  }
+
   return (
     <div>
       <img src={GeneralWave} alt="" />
       <div className="subContainer">
         <h1>My Lists</h1>
         <div>
-          <div className="shoppingListCard">
+          <div className="shoppingListCard" onClick={() => navigateListDetailPage()}>
             <div className="shoppinglistCardSubPart">
               <span>Listname</span>
               <MoreVertIcon />
@@ -20,7 +31,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <button>+ New list</button>
+        <button onClick={() => navigateAddlist()}>+ New list</button>
       </div>
     </div>
   );
