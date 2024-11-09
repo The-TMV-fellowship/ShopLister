@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import GeneralWave from "../../assets/generalWave.svg";
 
 export default function ListDetailPage() {
   const navigate = useNavigate();
+
+  const navigateAddlistItem = () => {
+    navigate("/addlistitem");
+  }
 
   const navigateBackToLists = () => {
     navigate("/");
@@ -9,6 +14,7 @@ export default function ListDetailPage() {
 
   return (
     <div>
+      <img src={GeneralWave}></img>
       <h1>List name</h1>
       <div>
         <div>
@@ -18,7 +24,7 @@ export default function ListDetailPage() {
         </div>
       </div>
       <span>Progress bar plaeholder</span>
-      <button>+ Add item</button>
+      <button onClick={() => navigateAddlistItem()}>+ Add item</button>
       <a onClick={() => navigateBackToLists()}>Cancel</a>
     </div>
   );
