@@ -8,6 +8,7 @@ import RegisterPage from "./NewDesign/RegisterPage/RegisterPage";
 import WelcomePage from "./NewDesign/WelcomePage/WelcomePage";
 import NotFound from "./NotFound/NotFound";
 import ShoppingListPage from "./NewDesign/ListDetailPage/ListDetailPage";
+import AddItemFormPage from "./NewDesign/AddItemFormPage/AddItemFormPage";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="/shoppinglist" element={<ShoppingListPage />} />'
-        <Route path="/addlist" element={<AddListFormPage />} />'
+        <Route path="/shoppinglist" element={<ShoppingListPage />} />
+        <Route path="/addlist" element={<AddListFormPage />} />
+        <Route path="/addlistitem" element={<AddItemFormPage/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
