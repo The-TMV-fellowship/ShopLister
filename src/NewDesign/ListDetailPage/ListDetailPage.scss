@@ -1,0 +1,18 @@
+@import "../../variables";
+
+.shoppingListItemCard {
+  background-color: $main;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  color: $textWhite;
+}
+
+.testContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+}

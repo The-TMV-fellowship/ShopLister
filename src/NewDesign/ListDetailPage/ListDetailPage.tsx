@@ -1,31 +1,59 @@
 import { useNavigate } from "react-router-dom";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import LinearProgress, {
+  linearProgressClasses,
+} from "@mui/material/LinearProgress";
+import { styled } from "@mui/material/styles";
 import GeneralWave from "../../assets/generalWave.svg";
+import "./ListDetailPage.scss";
+
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+  height: 20,
+  borderRadius: 5,
+  width: "100%",
+  flexShrink: 0,
+  padding: 0,
+  [`&.${linearProgressClasses.colorPrimary}`]: {
+    backgroundColor:
+      theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
+  },
+  [`& .${linearProgressClasses.bar}`]: {
+    borderRadius: 5,
+    backgroundColor: theme.palette.mode === "light" ? "green" : "#308fe8",
+  },
+}));
 
 export default function ListDetailPage() {
   const navigate = useNavigate();
 
   const navigateAddlistItem = () => {
     navigate("/addlistitem");
-  }
+  };
 
   const navigateBackToLists = () => {
     navigate("/");
-  }
+  };
 
   return (
     <div>
-      <img src={GeneralWave}></img>
-      <h1>List name</h1>
-      <div>
+      <img src={GeneralWave} />
+      <div className="testContainer">
+        <h1>List name</h1>
         <div>
-          <span>Checkbox placeholder</span>
-          <span>Item name</span>
-          <span>Options placeholder</span>
+          <div>
+            <div className="shoppingListItemCard">
+              <input type="checkbox" />
+              <span>Item name</span>
+              <MoreVertIcon />
+            </div>
+          </div>
         </div>
       </div>
-      <span>Progress bar plaeholder</span>
-      <button onClick={() => navigateAddlistItem()}>+ Add item</button>
-      <a onClick={() => navigateBackToLists()}>Cancel</a>
+      <div>
+        <BorderLinearProgress variant="determinate" value={50} />
+        <button onClick={() => navigateAddlistItem()}>+ Add item</button>
+        <a onClick={() => navigateBackToLists()}>Return home</a>
+      </div>
     </div>
   );
 }
