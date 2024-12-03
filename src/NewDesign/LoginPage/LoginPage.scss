@@ -18,6 +18,18 @@ h1 {
   margin-top: 5px;
 }
 
+h1:after {
+  background: none repeat scroll 0 0 $main;
+  bottom: -15px;
+  content: "";
+  display: block;
+  height: 5px;
+  position: relative;
+  width: 115px;
+  border-radius: 100px;
+  margin-bottom: 25px;
+}
+
 p {
   text-align: left;
   margin-bottom: 100px;
