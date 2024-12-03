@@ -52,14 +52,14 @@ export default function RegisterPage() {
         >
           <Form>
             <div className="formInput">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="username">Username</label>
               <Field
-                type="email"
-                name="email"
+                type="username"
+                name="username"
                 className="registerFormField__field"
               />
               <ErrorMessage
-                name="email"
+                name="username"
                 component="div"
                 className="error-message"
               />
