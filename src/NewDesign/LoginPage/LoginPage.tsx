@@ -1,8 +1,9 @@
 import CircularProgress from "@mui/material/CircularProgress";
+
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LockIcon from "@mui/icons-material/Lock";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 /*
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import LockIcon from '@mui/icons-material/Lock';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 */
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -58,7 +59,16 @@ export default function LoginPage() {
           <Form>
             <div className="formInput">
               <label htmlFor="username">Username</label>
-              <Field type="username" name="username" />
+              <div className="inputFieldContainer">
+                <MailOutlineIcon className="inputIconMain" />
+                <div className="seperatorLine"></div>
+                <Field
+                  type="username"
+                  placeholder="username"
+                  name="username"
+                  className="inputField"
+                />
+              </div>
               <ErrorMessage
                 name="username"
                 component="div"
@@ -68,7 +78,17 @@ export default function LoginPage() {
 
             <div className="formInput">
               <label htmlFor="password">Password</label>
-              <Field type="password" name="password" />
+              <div className="inputFieldContainer">
+                <LockIcon className="inputIconMain" />
+                <div className="seperatorLine"></div>
+                <Field
+                  type="password"
+                  placeholder="*******"
+                  name="password"
+                  className="inputField"
+                />
+                <VisibilityIcon className="inputIconAccent" />
+              </div>
               <ErrorMessage
                 name="password"
                 component="div"
@@ -98,7 +118,7 @@ export default function LoginPage() {
             </button>
           </Form>
         </Formik>
-        <p>
+        <p className="bottomText">
           Don't have an account? <a href="/register">Sign up</a>
         </p>
       </div>
