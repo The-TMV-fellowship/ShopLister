@@ -48,7 +48,7 @@ export default function () {
             onClick={() => navigateListDetailPage()}
           >
             <div className="shoppinglistCardSubPart">
-              <span>Listname</span>
+              <span className="listName">Listname</span>
               <MoreVertIcon />
             </div>
             <div className="shoppinglistCardSubPart">
