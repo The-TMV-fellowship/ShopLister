@@ -37,3 +37,48 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+.formInput:after {
+  background: none repeat scroll 0 0 $main;
+  bottom: -5px;
+  content: "";
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 100%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.belowFormText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  background-color: none;
+}
+
+.inputIconMain {
+  color: $main;
+}
+
+.inputIconAccent {
+  color: $accent;
+}
+
+.seperatorLine {
+  border-left: 2px solid $main;
+  height: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.bottomText {
+  text-align: center;
+}

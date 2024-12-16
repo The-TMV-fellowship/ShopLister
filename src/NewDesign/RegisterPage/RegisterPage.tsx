@@ -2,6 +2,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LockIcon from "@mui/icons-material/Lock";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import {
   createUser,
   validateForm,
@@ -53,11 +56,16 @@ export default function RegisterPage() {
           <Form>
             <div className="formInput">
               <label htmlFor="username">Username</label>
-              <Field
-                type="username"
-                name="username"
-                className="registerFormField__field"
-              />
+              <div className="inputFieldContainer">
+                <MailOutlineIcon className="inputIconMain" />
+                <div className="seperatorLine"></div>
+                <Field
+                  type="username"
+                  placeholder="username"
+                  name="username"
+                  className="inputField"
+                />
+              </div>
               <ErrorMessage
                 name="username"
                 component="div"
@@ -67,11 +75,17 @@ export default function RegisterPage() {
 
             <div className="formInput">
               <label htmlFor="password">Password</label>
-              <Field
-                type="password"
-                name="password"
-                className="registerFormField__field"
-              />
+              <div className="inputFieldContainer">
+                <LockIcon className="inputIconMain" />
+                <div className="seperatorLine"></div>
+                <Field
+                  type="password"
+                  placeholder="*******"
+                  name="password"
+                  className="inputField"
+                />
+                <VisibilityIcon className="inputIconAccent" />
+              </div>
               <ErrorMessage
                 name="password"
                 component="div"
@@ -81,12 +95,22 @@ export default function RegisterPage() {
 
             <div className="formInput">
               <label htmlFor="password">Confirm Password</label>
-              <Field type="password" name="password" />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="error-message"
-              />
+              <div className="inputFieldContainer">
+                <LockIcon className="inputIconMain" />
+                <div className="seperatorLine"></div>
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="*******"
+                  className="inputField"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error-message"
+                />
+                <VisibilityIcon className="inputIconAccent" />
+              </div>
             </div>
 
             <button type="submit" disabled={loading}>
@@ -98,7 +122,7 @@ export default function RegisterPage() {
             </button>
           </Form>
         </Formik>
-        <p>
+        <p className="bottomText">
           Already have an account? <a href="/login">Log in</a>
         </p>
       </div>
