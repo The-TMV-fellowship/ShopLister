@@ -117,7 +117,7 @@ export default function RegisterPage() {
               {loading ? (
                 <CircularProgress size={20} color="inherit" />
               ) : (
-                "Submit"
+                "Create an account"
               )}
             </button>
           </Form>
