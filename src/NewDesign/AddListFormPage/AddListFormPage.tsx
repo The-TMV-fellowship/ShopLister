@@ -1,5 +1,6 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GeneralWave from "../../assets/generalWave.svg";
@@ -18,7 +19,7 @@ export default function AddListFormPage() {
 
   const navigateBackToLists = () => {
     navigate("/");
-  }
+  };
 
   return (
     <div>
@@ -33,8 +34,16 @@ export default function AddListFormPage() {
         <Form className="subContainer">
           <div>
             <h1>Create new list</h1>
-            <div>
-              <Field name="listname" />
+            <div className="formInput">
+              <div className="inputFieldContainer">
+                <ListAltIcon className="inputIconMain" />
+                <div className="seperatorLine"></div>
+                <Field
+                  name="listname"
+                  placeholder="name your list"
+                  className="inputField"
+                />
+              </div>
               <ErrorMessage
                 name="listname"
                 component="div"

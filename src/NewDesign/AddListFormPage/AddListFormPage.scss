@@ -23,3 +23,41 @@ button {
   color: $textWhite;
   background-color: $accent;
 }
+
+.inputFieldContainer {
+  display: flex;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.formInput:after {
+  background: none repeat scroll 0 0 $main;
+  bottom: -5px;
+  content: "";
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 100%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+}
+
+.inputField {
+  background-color: transparent;
+  width: 100%;
+}
+
+.inputIconMain {
+  color: $main;
+}
+
+.seperatorLine {
+  border-left: 2px solid $main;
+  height: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
