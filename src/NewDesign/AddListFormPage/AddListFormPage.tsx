@@ -36,7 +36,7 @@ export default function AddListFormPage() {
             <h1>Create new list</h1>
             <div className="formInput">
               <div className="inputFieldContainer">
-                <ListAltIcon className="inputIconMain" />
+                <ListAltIcon className="inputIconAccent" />
                 <div className="seperatorLine"></div>
                 <Field
                   name="listname"
