@@ -45,7 +45,7 @@ export default function ListDetailPage() {
         <div>
           <div>
             <div className="shoppingListItemCard">
-              <input type="checkbox" />
+              <input type="checkbox" className="inputCheckbox" />
               <span>Item name</span>
               <MoreVertIcon />
             </div>
