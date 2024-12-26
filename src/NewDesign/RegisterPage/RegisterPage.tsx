@@ -113,18 +113,20 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <button type="submit" disabled={loading}>
-              {loading ? (
-                <CircularProgress size={20} color="inherit" />
-              ) : (
-                "Create an account"
-              )}
-            </button>
+            <div className="bottomPart">
+              <button type="submit" disabled={loading} className="buttonBottom">
+                {loading ? (
+                  <CircularProgress size={20} color="inherit" />
+                ) : (
+                  "Create an account"
+                )}
+              </button>
+              <p className="bottomText">
+                Already have an account? <a href="/login">Log in</a>
+              </p>
+            </div>
           </Form>
         </Formik>
-        <p className="bottomText">
-          Already have an account? <a href="/login">Log in</a>
-        </p>
       </div>
     </div>
   );

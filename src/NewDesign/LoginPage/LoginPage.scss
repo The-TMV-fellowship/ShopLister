@@ -105,6 +105,19 @@ input {
   opacity: 60%;
 }
 
-.bottomText {
+.bottomPart {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+.textBottom {
   text-align: center;
+  margin: 0;
+}
+
+.buttonBottom {
+  margin-bottom: 10px;
 }

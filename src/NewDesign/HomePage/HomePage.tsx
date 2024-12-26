@@ -57,7 +57,9 @@ export default function () {
             </div>
           </div>
         </div>
-        <button onClick={() => navigateAddlist()}>+ New list</button>
+        <button onClick={() => navigateAddlist()} className="buttonBottom">
+          + New list
+        </button>
       </div>
     </div>
   );

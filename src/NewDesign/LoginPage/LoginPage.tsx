@@ -109,18 +109,20 @@ export default function LoginPage() {
               <a href="/">Forgot password?</a>
             </div>
 
-            <button type="submit" disabled={loading}>
-              {loading ? (
-                <CircularProgress size={20} color="inherit" />
-              ) : (
-                "Log in"
-              )}
-            </button>
+            <div className="bottomPart">
+              <button type="submit" disabled={loading}>
+                {loading ? (
+                  <CircularProgress size={20} color="inherit" />
+                ) : (
+                  "Log in"
+                )}
+              </button>
+              <p className="textBottom">
+                Don't have an account? <a href="/register">Sign up</a>
+              </p>
+            </div>
           </Form>
         </Formik>
-        <p className="bottomText">
-          Don't have an account? <a href="/register">Sign up</a>
-        </p>
       </div>
     </div>
   );

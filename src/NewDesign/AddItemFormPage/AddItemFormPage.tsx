@@ -27,8 +27,10 @@ export default function AddItemFormPage() {
             />
           </div>
         </div>
-        <button>+ Add item</button>
-        <a onClick={() => navigateBackToList()}>Cancel</a>
+        <div className="bottomPart">
+          <button className="buttonBottom">+ Add item</button>
+          <a onClick={() => navigateBackToList()}>Cancel</a>
+        </div>
       </div>
     </div>
   );

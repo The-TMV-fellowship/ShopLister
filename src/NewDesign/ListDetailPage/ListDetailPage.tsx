@@ -52,9 +52,15 @@ export default function ListDetailPage() {
           </div>
         </div>
       </div>
-      <div>
-        <BorderLinearProgress variant="determinate" value={50} />
-        <button onClick={() => navigateAddlistItem()}>+ Add item</button>
+      <div className="bottomPart">
+        <BorderLinearProgress
+          variant="determinate"
+          value={50}
+          className="progressBarBottom"
+        />
+        <button onClick={() => navigateAddlistItem()} className="buttonBottom">
+          + Add item
+        </button>
         <a onClick={() => navigateBackToLists()}>Return home</a>
       </div>
     </div>

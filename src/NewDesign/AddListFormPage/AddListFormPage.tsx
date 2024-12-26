@@ -52,8 +52,8 @@ export default function AddListFormPage() {
             </div>
           </div>
 
-          <div>
-            <button type="submit" disabled={loading}>
+          <div className="bottomPart">
+            <button type="submit" disabled={loading} className="buttonBottom">
               {loading ? (
                 <CircularProgress size={20} color="inherit" />
               ) : (

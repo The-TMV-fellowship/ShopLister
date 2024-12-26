@@ -44,3 +44,11 @@ button {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.buttonBottom {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
