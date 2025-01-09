@@ -9,11 +9,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  loginUser,
-  validateForm,
-  validationSchema,
-} from "../../Login/LoginPageLogic";
+import { loginUser, validateForm, validationSchema } from "./LoginPageLogic";
 import GeneralWave from "../../assets/generalWave.svg";
 import { LoginFormData } from "../../interfaces/types";
 import "./LoginPage.scss";

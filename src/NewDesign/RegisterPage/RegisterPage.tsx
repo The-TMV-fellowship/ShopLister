@@ -9,7 +9,7 @@ import {
   createUser,
   validateForm,
   validationSchema,
-} from "../../Register/RegisterPageLogic";
+} from "./RegisterPageLogic";
 import GeneralWave from "../../assets/generalWave.svg";
 import { RegisterFormData } from "../../interfaces/types";
 import "./RegisterPage.scss";
@@ -17,7 +17,7 @@ import "./RegisterPage.scss";
 export default function RegisterPage() {
   const initialValues: RegisterFormData = {
     username: "",
-    email: "",
+    //email: "",
     password: "",
   };
   const [loading, setLoading] = useState(false);
