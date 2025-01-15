@@ -5,29 +5,47 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GeneralWave from "../../assets/generalWave.svg";
 import "./AddListFormPage.scss";
-
-const handleSubmit = async () => {
-  return null;
-};
+import { AddListData } from "../../interfaces/types";
+import addShoppingList, {
+  validateForm,
+  validationSchema,
+} from "./AddListLogic";
 
 export default function AddListFormPage() {
-  const navigate = useNavigate();
-  const initialValues = {
-    listName: "",
+  const initialValue: AddListData = {
+    listname: "",
   };
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const navigateBackToLists = () => {
     navigate("/");
+  };
+
+  const handleSubmit = async (values: AddListData) => {
+    setLoading(true);
+    const validationErrors = await validateForm(values);
+    if (Object.keys(validationErrors).length === 0) {
+      try {
+        addShoppingList(values.listname);
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      console.log("Form validation errors:", validationErrors);
+    }
   };
 
   return (
     <div>
       <img src={GeneralWave}></img>
       <Formik
-        initialValues={initialValues}
+        initialValues={initialValue}
         onSubmit={handleSubmit}
-        //validationSchema={validationSchema}
+        validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}
       >
