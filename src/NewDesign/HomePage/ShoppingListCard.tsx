@@ -24,21 +24,45 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-export default function () {
+export default function ({
+  listId,
+  isGroup,
+  checkedOffAmount,
+  listSize,
+  listName,
+}: {
+  listId: number;
+  isGroup: boolean;
+  checkedOffAmount: number;
+  listSize: number;
+  listName: string;
+}) {
   const navigate = useNavigate();
-  const navigateListDetailPage = () => {
+
+  const setListId = (Id: number) => {
+    sessionStorage.setItem("shoppingListId", Id);
     navigate("/shoppinglist");
   };
 
+  const percentageCheckedOff: number = Math.trunc(
+    (checkedOffAmount / listSize) * 100
+  );
+
   return (
-    <div className="shoppingListCard" onClick={() => navigateListDetailPage()}>
+    <div className="shoppingListCard" onClick={() => setListId(listId)}>
       <div className="shoppinglistCardSubPart">
-        <span className="listName">Listname</span>
+        <span className="listName">{listName}</span>
         <MoreVertIcon />
       </div>
       <div className="shoppinglistCardSubPart">
-        <BorderLinearProgress variant="determinate" value={50} />
-        <span>0/0</span>
+        <BorderLinearProgress
+          variant="determinate"
+          value={percentageCheckedOff}
+        />
+        <span>
+          {" "}
+          {checkedOffAmount}/{listSize}
+        </span>
       </div>
     </div>
   );
