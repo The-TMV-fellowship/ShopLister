@@ -17,7 +17,6 @@ export default function () {
     try {
       const fetchedLists = await fetchShoppingLists();
       setLists(fetchedLists);
-      console.log(fetchedLists);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -41,7 +40,7 @@ export default function () {
                 listName={list.name}
                 isGroup={true}
                 checkedOffAmount={5}
-                listSize={5}
+                listSize={list.content.length}
               />
             ))
           ) : (
