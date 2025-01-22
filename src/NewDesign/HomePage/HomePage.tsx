@@ -1,30 +1,7 @@
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GeneralWave from "../../assets/generalWave.svg";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
-import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.scss";
-
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 10,
-  borderRadius: 5,
-  width: "80%",
-  flexShrink: 0,
-  padding: 0,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor:
-      theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
-  },
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
-    backgroundColor:
-      theme.palette.mode === "light"
-        ? "rgba(144, 201, 243, 1)"
-        : "rgba(144, 201, 243, 1)",
-  },
-}));
+import ShoppingListCard from "./ShoppingListCard";
 
 export default function () {
   const navigate = useNavigate();
@@ -33,29 +10,13 @@ export default function () {
     navigate("/addlist");
   };
 
-  const navigateListDetailPage = () => {
-    navigate("/shoppinglist");
-  };
-
   return (
     <div>
       <img src={GeneralWave} alt="" />
       <div className="subContainer">
         <h1>My Lists</h1>
         <div>
-          <div
-            className="shoppingListCard"
-            onClick={() => navigateListDetailPage()}
-          >
-            <div className="shoppinglistCardSubPart">
-              <span className="listName">Listname</span>
-              <MoreVertIcon />
-            </div>
-            <div className="shoppinglistCardSubPart">
-              <BorderLinearProgress variant="determinate" value={50} />
-              <span>0/0</span>
-            </div>
-          </div>
+          <ShoppingListCard />
         </div>
         <button onClick={() => navigateAddlist()} className="buttonBottom">
           + New list
