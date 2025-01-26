@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LinearProgress, {
   linearProgressClasses,
@@ -6,6 +7,7 @@ import LinearProgress, {
 import { styled } from "@mui/material/styles";
 import GeneralWave from "../../assets/generalWave.svg";
 import "./ListDetailPage.scss";
+import { fetchShoppingListData } from "./ListDetailPageLogic";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 20,
@@ -28,6 +30,10 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 export default function ListDetailPage() {
   const navigate = useNavigate();
+  const [checkboxStatus, setCheckboxStatus] = useState({});
+  const [listData, setListData] = useState(null);
+  const [percentageChecked, setPercentageChecked] = useState<number>(0);
+  const [userID, setUserID] = useState(null);
 
   const navigateAddlistItem = () => {
     navigate("/addlistitem");
@@ -35,6 +41,43 @@ export default function ListDetailPage() {
 
   const navigateBackToLists = () => {
     navigate("/");
+  };
+
+  useEffect(() => {
+    calculateCheckedBoxAmount();
+    const listId: number = parseInt(
+      sessionStorage.getItem("shoppingListId"),
+      10
+    );
+    fetchData(listId);
+    setUserID(sessionStorage.getItem("userID"));
+  }, [checkboxStatus]);
+
+  const fetchData = (listId: number) => {
+    fetchShoppingListData(listId)
+      .then((data) => setListData(data))
+      .catch((error) =>
+        console.error("Error fetching shopping list data:", error)
+      );
+  };
+
+  const handleCheckboxChange = (childId, isChecked) => {
+    setCheckboxStatus((prevStatus) => ({
+      ...prevStatus,
+      [childId]: isChecked,
+    }));
+  };
+
+  const calculateCheckedBoxAmount = () => {
+    let amountChecked: number = 0;
+    for (const [key, value] of Object.entries(checkboxStatus)) {
+      if (value === true) {
+        amountChecked++;
+      }
+    }
+    setPercentageChecked(
+      Math.round((amountChecked / Object.keys(checkboxStatus).length) * 100)
+    );
   };
 
   return (
