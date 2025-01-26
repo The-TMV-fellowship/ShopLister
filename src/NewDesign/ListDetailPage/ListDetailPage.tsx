@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
@@ -8,6 +7,7 @@ import { styled } from "@mui/material/styles";
 import GeneralWave from "../../assets/generalWave.svg";
 import "./ListDetailPage.scss";
 import { fetchShoppingListData } from "./ListDetailPageLogic";
+import ShoppingListItem from "./ShoppingListItem";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 20,
@@ -86,13 +86,19 @@ export default function ListDetailPage() {
       <div className="testContainer">
         <h1>List name</h1>
         <div>
-          <div>
-            <div className="shoppingListItemCard">
-              <input type="checkbox" className="inputCheckbox" />
-              <span>Item name</span>
-              <MoreVertIcon />
-            </div>
-          </div>
+          {listData && listData.content.length !== 0 ? (
+            listData.content.map((item) => (
+              <ShoppingListItem
+                key={item}
+                childId="child1"
+                isChecked={checkboxStatus["child1"]}
+                onCheckboxChange={handleCheckboxChange}
+                itemName={item}
+              />
+            ))
+          ) : (
+            <span>You currently don't have any items in this list.</span>
+          )}
         </div>
       </div>
       <div className="bottomPart">
