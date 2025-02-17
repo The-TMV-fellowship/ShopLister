@@ -39,7 +39,7 @@ export default function () {
                 listId={list.id}
                 listName={list.name}
                 isGroup={true}
-                checkedOffAmount={5}
+                checkedOffAmount={0}
                 listSize={list.content.length}
               />
             ))
