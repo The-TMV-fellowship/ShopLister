@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { deleteList } from "./HomepageLogic";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -38,6 +42,13 @@ export default function ({
   listName: string;
 }) {
   const navigate = useNavigate();
+  const [showDeleteButton, setShowDeleteButton] = useState<boolean>(false);
+
+  const toggleDeleteMenu = () => {
+    showDeleteButton == false
+      ? setShowDeleteButton(true)
+      : setShowDeleteButton(false);
+  };
 
   const setListId = (Id: number) => {
     sessionStorage.setItem("shoppingListId", Id);
@@ -49,12 +60,25 @@ export default function ({
   );
 
   return (
-    <div className="shoppingListCard" onClick={() => setListId(listId)}>
+    <div className="shoppingListCard">
       <div className="shoppinglistCardSubPart">
-        <span className="listName">{listName}</span>
-        <MoreVertIcon />
+        <span className="listName" onClick={() => setListId(listId)}>
+          {listName}
+        </span>
+        {showDeleteButton == true ? (
+          <div className="deleteItemButtonsContainer">
+            <span>Delete item?</span>
+            <HighlightOffIcon onClick={() => toggleDeleteMenu()} />
+            <CheckCircleOutlinedIcon onClick={() => deleteList(listId)} />
+          </div>
+        ) : (
+          <DeleteIcon onClick={() => toggleDeleteMenu()} />
+        )}
       </div>
-      <div className="shoppinglistCardSubPart">
+      <div
+        className="shoppinglistCardSubPart"
+        onClick={() => setListId(listId)}
+      >
         <BorderLinearProgress
           variant="determinate"
           value={percentageCheckedOff}
