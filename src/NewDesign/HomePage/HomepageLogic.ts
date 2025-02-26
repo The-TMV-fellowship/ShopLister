@@ -35,6 +35,7 @@ export async function deleteList(listId: number) {
     })
     .then((response) => {
       deletionResponse = response.data;
+      window.location.reload();
     })
     .catch((error) => {
       console.error("Error fetching shopping list data:", error);
