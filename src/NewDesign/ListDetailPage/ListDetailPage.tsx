@@ -81,7 +81,7 @@ export default function ListDetailPage() {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <img src={GeneralWave} />
       <div className="testContainer">
         <h1>List name</h1>
