@@ -27,7 +27,7 @@ export default function () {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <img src={GeneralWave} alt="" />
       <div className="subContainer">
         <h1>My Lists</h1>
