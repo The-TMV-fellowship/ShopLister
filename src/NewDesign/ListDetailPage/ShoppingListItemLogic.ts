@@ -6,7 +6,7 @@ export async function deleteItem(id: number, itemId: number) {
   let deletionResponse;
 
   await axios
-    .delete(`http://127.0.0.1:8000/api/ShopLists/` + id + `item/` + itemId, {
+    .delete(`http://127.0.0.1:8000/api/ShopLists/` + id + `/item/` + itemId, {
       headers: {
         Authorization: `Bearer ${bearerToken}`,
         "Content-Type": "application/json",
