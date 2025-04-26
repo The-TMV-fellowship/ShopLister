@@ -87,10 +87,10 @@ export default function ListDetailPage() {
         <h1>List name</h1>
         <div>
           {listData && listData.content ? (
-            Object.values(listData.content).map((val, idx) => (
+            Object.values(listData.content).map((val, key) => (
               <ShoppingListItem
-                key={idx}
-                itemId={1}
+                key={key}
+                itemId={key}
                 isChecked={checkboxStatus["child1"]}
                 onCheckboxChange={handleCheckboxChange}
                 itemName={val}
