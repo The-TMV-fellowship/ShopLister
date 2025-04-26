@@ -8,13 +8,25 @@ import { Field, Form, Formik } from "formik";
 
 export default function AddItemFormPage(values: AddItemToForm) {
   const navigate = useNavigate();
+  let itemStatus = "";
 
   const initialValues: AddItemFormData = {
     itemName: "",
   };
 
   const handleSubmit = async (itemToAdd: AddItemFormData) => {
-    addItemToList(values.userID, values.ShoppingListName, itemToAdd.itemName);
+    try {
+      await addItemToList(
+        values.userID,
+        values.ShoppingListName,
+        itemToAdd.itemName
+      );
+      itemStatus = "Item added Successfully!";
+    } catch (error) {
+      console.log(error);
+    } finally {
+      // setLoading(false);
+    }
   };
 
   const navigateBackToList = () => {
@@ -46,6 +58,7 @@ export default function AddItemFormPage(values: AddItemToForm) {
               </div>
             </div>
             <div className="bottomPart">
+              <span>{itemStatus}</span>
               <button className="buttonBottom" type="submit">
                 + Add item
               </button>
