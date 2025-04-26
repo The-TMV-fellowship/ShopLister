@@ -61,10 +61,10 @@ export default function ListDetailPage() {
       );
   };
 
-  const handleCheckboxChange = (childId, isChecked) => {
+  const handleCheckboxChange = (itemId, isChecked) => {
     setCheckboxStatus((prevStatus) => ({
       ...prevStatus,
-      [childId]: isChecked,
+      [itemId]: isChecked,
     }));
   };
 
@@ -86,14 +86,14 @@ export default function ListDetailPage() {
       <div className="testContainer">
         <h1>List name</h1>
         <div>
-          {listData && listData.content.length !== 0 ? (
-            listData.content.map((item) => (
+          {listData && listData.content ? (
+            Object.values(listData.content).map((val, idx) => (
               <ShoppingListItem
-                key={item}
-                childId="child1"
+                key={idx}
+                itemId={1}
                 isChecked={checkboxStatus["child1"]}
                 onCheckboxChange={handleCheckboxChange}
-                itemName={item}
+                itemName={val}
               />
             ))
           ) : (

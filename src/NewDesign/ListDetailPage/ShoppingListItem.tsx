@@ -1,15 +1,29 @@
+import { useState } from "react";
 import "./ListDetailPage.scss";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { deleteItem } from "./ShoppingListItemLogic";
 
 export default function ShoppingListItem({
-  childId,
+  itemId,
   isChecked,
   onCheckboxChange,
   itemName,
 }) {
+  const [showDeleteButton, setShowDeleteButton] = useState<boolean>(false);
+
+  const listId: number = parseInt(sessionStorage.getItem("shoppingListId"), 10);
+
   const handleChange = (event) => {
     const newCheckedValue = event.target.checked;
-    onCheckboxChange(childId, newCheckedValue);
+    onCheckboxChange(itemId, newCheckedValue);
+  };
+
+  const toggleDeleteMenu = () => {
+    showDeleteButton == false
+      ? setShowDeleteButton(true)
+      : setShowDeleteButton(false);
   };
 
   return (
@@ -21,7 +35,16 @@ export default function ShoppingListItem({
         onChange={handleChange}
       />
       <span>{itemName}</span>
-      <MoreVertIcon />
+
+      {showDeleteButton == true ? (
+        <div className="deleteItemButtonsContainer">
+          <span>Delete item?</span>
+          <HighlightOffIcon onClick={() => toggleDeleteMenu()} />
+          <CheckCircleOutlinedIcon onClick={() => deleteItem(listId, itemId)} />
+        </div>
+      ) : (
+        <DeleteIcon onClick={() => toggleDeleteMenu()} />
+      )}
     </div>
   );
 }

@@ -42,3 +42,9 @@
 .buttonBottom {
   margin-bottom: 10px;
 }
+
+.deleteItemButtonsContainer {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
