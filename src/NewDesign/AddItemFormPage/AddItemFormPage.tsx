@@ -14,6 +14,10 @@ export default function AddItemFormPage(values: AddItemToForm) {
     itemName: "",
   };
 
+  const navigateBackToList = () => {
+    navigate("/shoppinglist");
+  };
+
   const handleSubmit = async (itemToAdd: AddItemFormData) => {
     try {
       await addItemToList(
@@ -22,15 +26,12 @@ export default function AddItemFormPage(values: AddItemToForm) {
         itemToAdd.itemName
       );
       itemStatus = "Item added Successfully!";
+      navigateBackToList();
     } catch (error) {
       console.log(error);
     } finally {
       // setLoading(false);
     }
-  };
-
-  const navigateBackToList = () => {
-    navigate("/shoppinglist");
   };
 
   return (
