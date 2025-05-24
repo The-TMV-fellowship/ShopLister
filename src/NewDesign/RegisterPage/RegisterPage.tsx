@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import {
   createUser,
   validateForm,
@@ -21,6 +22,7 @@ export default function RegisterPage() {
     password: "",
   };
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (values: RegisterFormData) => {
@@ -39,6 +41,10 @@ export default function RegisterPage() {
     } else {
       console.log("Form validation errors:", validationErrors);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    showPassword === false ? setShowPassword(true) : setShowPassword(false);
   };
 
   return (
@@ -79,12 +85,22 @@ export default function RegisterPage() {
                 <LockIcon className="inputIconMain" />
                 <div className="seperatorLine"></div>
                 <Field
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="*******"
                   name="password"
                   className="inputField"
                 />
-                <VisibilityIcon className="inputIconAccent" />
+                {showPassword ? (
+                  <VisibilityOffIcon
+                    className="inputIconAccent"
+                    onClick={() => togglePasswordVisibility()}
+                  />
+                ) : (
+                  <VisibilityIcon
+                    className="inputIconAccent"
+                    onClick={() => togglePasswordVisibility()}
+                  />
+                )}
               </div>
               <ErrorMessage
                 name="password"
@@ -99,7 +115,7 @@ export default function RegisterPage() {
                 <LockIcon className="inputIconMain" />
                 <div className="seperatorLine"></div>
                 <Field
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="*******"
                   className="inputField"
@@ -109,7 +125,17 @@ export default function RegisterPage() {
                   component="div"
                   className="error-message"
                 />
-                <VisibilityIcon className="inputIconAccent" />
+                {showPassword ? (
+                  <VisibilityOffIcon
+                    className="inputIconAccent"
+                    onClick={() => togglePasswordVisibility()}
+                  />
+                ) : (
+                  <VisibilityIcon
+                    className="inputIconAccent"
+                    onClick={() => togglePasswordVisibility()}
+                  />
+                )}
               </div>
             </div>
 
