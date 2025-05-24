@@ -3,9 +3,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-/*
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-*/
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +18,7 @@ export default function LoginPage() {
     password: "",
   };
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (values: LoginFormData) => {
@@ -38,6 +37,10 @@ export default function LoginPage() {
     } else {
       console.log("Form validation errors:", validationErrors);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    showPassword === false ? setShowPassword(true) : setShowPassword(false);
   };
 
   return (
@@ -78,12 +81,23 @@ export default function LoginPage() {
                 <LockIcon className="inputIconMain" />
                 <div className="seperatorLine"></div>
                 <Field
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="*******"
                   name="password"
                   className="inputField"
                 />
-                <VisibilityIcon className="inputIconAccent" />
+
+                {showPassword ? (
+                  <VisibilityOffIcon
+                    className="inputIconAccent"
+                    onClick={() => togglePasswordVisibility()}
+                  />
+                ) : (
+                  <VisibilityIcon
+                    className="inputIconAccent"
+                    onClick={() => togglePasswordVisibility()}
+                  />
+                )}
               </div>
               <ErrorMessage
                 name="password"
