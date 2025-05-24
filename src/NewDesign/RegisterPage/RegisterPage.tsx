@@ -110,13 +110,13 @@ export default function RegisterPage() {
             </div>
 
             <div className="formInput">
-              <label htmlFor="password">Confirm Password</label>
+              <label htmlFor="confirm password">Confirm Password</label>
               <div className="inputFieldContainer">
                 <LockIcon className="inputIconMain" />
                 <div className="seperatorLine"></div>
                 <Field
                   type={showPassword ? "text" : "password"}
-                  name="password"
+                  name="confirm password"
                   placeholder="*******"
                   className="inputField"
                 />
