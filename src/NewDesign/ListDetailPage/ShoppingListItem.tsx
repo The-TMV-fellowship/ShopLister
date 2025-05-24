@@ -26,6 +26,15 @@ export default function ShoppingListItem({
       : setShowDeleteButton(false);
   };
 
+  const handleSubmit = async () => {
+    try {
+      deleteItem(listId, itemId);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="shoppingListItemCard">
       <input
@@ -40,7 +49,7 @@ export default function ShoppingListItem({
         <div className="deleteItemButtonsContainer">
           <span>Delete item?</span>
           <HighlightOffIcon onClick={() => toggleDeleteMenu()} />
-          <CheckCircleOutlinedIcon onClick={() => deleteItem(listId, itemId)} />
+          <CheckCircleOutlinedIcon onClick={() => handleSubmit()} />
         </div>
       ) : (
         <DeleteIcon onClick={() => toggleDeleteMenu()} />
