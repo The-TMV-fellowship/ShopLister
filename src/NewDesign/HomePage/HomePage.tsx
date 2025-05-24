@@ -32,7 +32,7 @@ export default function () {
       <div className="subContainer">
         <h1>My Lists</h1>
         <div>
-          {lists !== null ? (
+          {lists !== null && lists.length !== 0 ? (
             lists.map((list) => (
               <ShoppingListCard
                 key={list.id}

@@ -86,7 +86,7 @@ export default function ListDetailPage() {
       <div className="testContainer">
         <h1>List name</h1>
         <div>
-          {listData && listData.content ? (
+          {listData && listData.content && listData.content.length !== 0 ? (
             Object.values(listData.content).map((val, key) => (
               <ShoppingListItem
                 key={key}
