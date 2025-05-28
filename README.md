@@ -9,3 +9,7 @@
 ## Quick setup
 
 1- Run "NPM install" in the shoplister directory
+
+## How to run
+
+1- Run "npm run dev" in the shoplister directory
