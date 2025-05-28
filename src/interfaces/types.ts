@@ -1,7 +1,7 @@
 export interface RegisterFormData {
   username: string;
   password: string;
-  email: string;
+  //email: string;
 }
 
 export interface LoginFormData {
@@ -18,9 +18,9 @@ export interface AddItemFormData {
 }
 
 export interface AddItemToForm {
-  userID: number,
-  shoppingListId: number,
-  ShoppingListName: string,
-  itemName: string,
-  currentListData:[string]
+  userID: number;
+  shoppingListId: number;
+  ShoppingListName: string;
+  itemName: string;
+  currentListData: [string];
 }

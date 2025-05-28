@@ -1,0 +1,40 @@
+@import "../../variables";
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+img {
+  margin: -150px;
+  width: 100%;
+}
+
+.subText {
+  text-align: left;
+  margin-bottom: 100px;
+  opacity: 80%;
+}
+
+.button {
+  background: none;
+  border: 2px solid $accent;
+  border-radius: 100px;
+  color: $accent;
+  width: 100px;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button:hover {
+  border: 2px solid $accent;
+}
+
+.arrow {
+  padding-left: 5px;
+}

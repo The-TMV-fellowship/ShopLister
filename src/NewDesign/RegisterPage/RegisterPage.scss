@@ -1,0 +1,101 @@
+@import "../../variables";
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+img {
+  margin: -150px;
+  width: 100%;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+p {
+  text-align: left;
+  margin-bottom: 100px;
+}
+
+label {
+  text-align: left;
+}
+
+button {
+  width: 100%;
+  color: $textWhite;
+  background-color: $accent;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.formInput:after {
+  background: none repeat scroll 0 0 $main;
+  bottom: -5px;
+  content: "";
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 100%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+  opacity: 60%;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.belowFormText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  background-color: none;
+}
+
+.inputIconMain {
+  color: $main;
+  opacity: 60%;
+}
+
+.inputIconAccent {
+  color: $accent;
+  opacity: 60%;
+}
+
+.seperatorLine {
+  border-left: 2px solid $main;
+  height: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+  opacity: 60%;
+}
+
+.bottomText {
+  text-align: center;
+  margin: 0;
+}
+
+.bottomPart {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+.buttonBottom {
+  margin-bottom: 10px;
+}
